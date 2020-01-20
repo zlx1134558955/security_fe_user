@@ -25,5 +25,11 @@ module.exports = {
 			{test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ }, // 配置 Babel 来转换高级的ES语法
 			{test: /\.vue$/, use: 'vue-loader'}
         ]
+	},
+	resolve: {
+        alias: {
+			'@': path.resolve(__dirname, './src'),
+			'Public': path.resolve(__dirname, './public')
+        }
     }
 };

@@ -1,0 +1,32 @@
+.header {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.company {
+    height: 60px;
+    display: flex;
+}
+.logo {
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.company-name-en {
+    padding: 5px 0;
+    height: 20px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: '#303133'
+}
+.company-name-cn {
+    height: 20px;
+    padding-top: 10px;
+    letter-spacing: 2px;
+    color: '#303133'
+}
+.btn-box {
+    display: flex;
+    align-items: center;
+}
