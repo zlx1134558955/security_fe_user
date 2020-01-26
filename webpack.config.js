@@ -29,7 +29,8 @@ module.exports = {
 	resolve: {
         alias: {
 			'@': path.resolve(__dirname, './src'),
-			'Public': path.resolve(__dirname, './public')
+			'$': path.resolve(__dirname, './public'),
+			'Api': path.resolve(__dirname, './api')
         }
     }
 };

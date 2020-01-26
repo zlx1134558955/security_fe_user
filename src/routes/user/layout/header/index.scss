@@ -17,7 +17,6 @@
     padding: 5px 0;
     height: 20px;
     font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
     color: '#303133'
 }
 .company-name-cn {
@@ -29,4 +28,21 @@
 .btn-box {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    width: 180px;
+}
+.person {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 180px;
+    .picture {
+        height: 40px;
+        width: 40px;
+        background-color: #f00;
+    }
+}
+.el-dropdown-link {
+    cursor: pointer;
+    color: #303133;
 }

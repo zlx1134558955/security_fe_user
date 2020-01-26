@@ -2,5 +2,9 @@ const dev = 'http://localhost:8888'
 const path = require('path')
 
 export default {
-    getSiteInfo: dev + '/site-info'
+    getSiteInfo: '/site-info',
+    register: '/register',
+    login: '/login',
+    getUserInfo: '/user-info',
+    logout: '/logout'
 }
