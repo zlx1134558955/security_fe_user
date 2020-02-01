@@ -1,6 +1,6 @@
 <template>
     <el-dialog title="注册" width="600px" :visible="showRegister" :before-close="handleClose">
-        <div class="company-abbrev">L<span class="other-color">x</span>BMP</div>
+        <div class="company-abbrev">L<span class="other-color">x</span>SMP</div>
         <el-form label-width="80px" :model="form" :rules="rules" ref="formName">
             <el-form-item label="账号" placeholder="请输入账号" prop="account">
                 <el-input v-model="form.account"></el-input>

@@ -1,8 +1,5 @@
+import Api from 'Api/user_api.js'
 export default {
-    data() {
-        return {
-        };
-    },
     computed: {
         siteNameCN() {
             return this.$store.state.site.site_name_cn
@@ -16,6 +13,9 @@ export default {
         activeIndex() {
             let params = this.$route.path.split('/')
             return params[params.length - 1]
+        },
+        avatar_url() {
+            return `${Api.env}headers/${this.$store.state.userInfo.avatar}`
         }
     },
     methods: {
@@ -33,12 +33,15 @@ export default {
         logout(){
             this.$emit('logout')
         },
+        toMember(){
+            let target = '/user/member'
+            if(this.$route.path === target) return
+            this.$router.push('/user/member')
+        },
         handleCommand(command) {
             if(command === 'logout') this.logout()
+            if(command === 'member') this.toMember()
         }
-    },
-    created() {
-        
     }
 }
  

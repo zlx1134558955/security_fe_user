@@ -1,4 +1,7 @@
 .header {
+    background-color: #fff;
+}
+.header-content {
     width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -36,10 +39,15 @@
     align-items: center;
     justify-content: flex-end;
     width: 180px;
-    .picture {
-        height: 40px;
-        width: 40px;
-        background-color: #f00;
+}
+.avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    img {
+        height: 30px;
+        width: 30px;
     }
 }
 .el-dropdown-link {

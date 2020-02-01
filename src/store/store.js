@@ -6,32 +6,42 @@ const store = new Vuex.Store({
         site: {
             site_name_cn: '',
             site_name_en: '',
-            site_intro: ''
+            site_intro: '',
+            site_abbrev: ''
         },
         userInfo: {
             username: '',
-            pid: ''
+            pid: '',
+            avatar: ''
         }
     },
     mutations: {
-        getSiteInfo(state, data) {
+        getSite(state, data) {
             state.site = {
                 site_name_cn: data[0].value,
                 site_intro: data[1].value,
                 site_name_en: data[9].value,
+                site_abbrev: data[10].value
             }
         },
         getUserInfo(state, data) {
-            if(!data){
-                data = {
-                    username: '',
-                    pid: ''
-                }
-            }
-            state.userInfo = {
+            state.userInfo = data ? {
                 username: data.username,
-                pid: data.pid
-            }
+                pid: data.pid,
+                avatar: data.avatar
+            } : {
+                    username: '',
+                    pid: '',
+                    avatar: ''
+                }
+        }
+    },
+    actions: {
+        getSite({ commit }, data) {
+            commit('getSite', data)
+        },
+        getUserInfo({ commit }, data) {
+            commit('getUserInfo', data)
         }
     }
 })

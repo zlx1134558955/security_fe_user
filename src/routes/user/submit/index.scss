@@ -1,0 +1,46 @@
+.main {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.submit-form {
+    flex: 0.6;
+    padding: 20px;
+}
+.standards {
+    flex: 0.3;
+    padding: 20px;
+}
+.upload-attach {
+    .el-upload__tip,
+    .el-upload {
+        display: inline-block;
+    }
+    .el-upload__tip {
+        margin-left: 10px;
+    }
+}
+.submit-btn {
+    margin-left: 100px;
+}
+.tip {
+    font-size: 14px;
+    color: #E6A23C;
+    margin: 0 0 10px 100px;
+}
+/deep/ .el-checkbox__label {
+    color: #606266 !important;
+}
+.standard-list {
+    li {
+        margin: 20px 0;
+        p{
+            margin: 5px;
+        }
+    }
+}
+.standards-title {
+    font-size: 20px;
+    color: #303133;
+}

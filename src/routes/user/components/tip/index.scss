@@ -1,0 +1,22 @@
+.main {
+    width: 1200px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.box {
+    height: 100px;
+    widows: 100%;
+    background-color: #F2F6FC;
+}
+.title {
+    font-weight: normal;
+    font-size: 20px;
+    color: #303133;
+    margin-left: 5px;
+}
+.content {
+    margin-left: 50px;
+    color: #606266;
+}

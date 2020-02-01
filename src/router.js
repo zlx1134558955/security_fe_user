@@ -5,6 +5,8 @@ import User from '@/routes/user/index.vue'
 import Admin from '@/routes/admin/index.vue'
 import Api from 'Api/user_api.js'
 import Home from '@/routes/user/home/index.vue'
+import Submit from '@/routes/user/submit/index.vue'
+import Member from '@/routes/user/member/index.vue'
 
 Vue.use(VueRouter)
 
@@ -20,15 +22,29 @@ let router = new VueRouter({
         {
             path: '/user',
             component: User,
-            name: '用户首页',
             children: [
                 {
                     path: '/user/home',
-                    component: Home
+                    component: Home,
+                    name: '首页'
                 },
                 {
-                    path: '/user/submit'
-                }
+                    path: '/user/submit',
+                    component: Submit,
+                    name: '提交漏洞'
+                },
+                {
+                    path: '/user/member',
+                    component: Member,
+                    name: '个人中心',
+                    meta: {
+                        api: {
+                            getMember: Api.getMember,
+                            updateMember: Api.updateMember,
+                            setAvatar: Api.setAvatar
+                        }
+                    }
+                },
             ],
             meta: {
                 // api: {

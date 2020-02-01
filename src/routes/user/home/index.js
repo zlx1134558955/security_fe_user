@@ -1,4 +1,3 @@
-import Api from 'Api/user_api.js'
 export default {
     data() {
         return {
@@ -6,6 +5,9 @@ export default {
         }
     },
     computed: {
+        site_abbrev() {
+            return this.$store.state.site.site_abbrev
+        }
     },
     methods: {
         jump(){

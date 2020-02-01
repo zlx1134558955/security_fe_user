@@ -9,6 +9,7 @@ import store from './store/store.js'
 import './main.scss'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import MD5 from 'js-md5'
 
 
 
@@ -22,6 +23,7 @@ axios.defaults.withCredentials = true
 
 // Vue.filter('timeFormat', filter.timeFormat)
 
+Vue.prototype.$md5 = MD5
 
 let vm = new Vue({
 	data: {

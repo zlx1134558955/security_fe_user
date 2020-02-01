@@ -1,10 +1,11 @@
-const dev = 'http://localhost:8888'
-const path = require('path')
-
 export default {
-    getSiteInfo: '/site-info',
-    register: '/register',
-    login: '/login',
-    getUserInfo: '/user-info',
-    logout: '/logout'
+    env: 'http://localhost:8888/',
+    getSite: '/site',
+    register: '/user-register',
+    login: '/user-login',
+    getUserInfo: '/user/info',
+    logout: '/user-logout',
+    getMember: '/user/get-member',
+    updateMember: '/user/update-member',
+    setAvatar: '/user/set-avatar'
 }

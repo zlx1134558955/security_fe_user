@@ -1,14 +1,10 @@
 <template>
     <div>
-        <el-container>
-            <el-header>
-                <Header @register="register" @login="login" @logout="logout"></Header>
-            </el-header>
-            <div class="main">
-                <router-view></router-view>
-            </div>
-            <el-footer>Footer</el-footer>
-        </el-container>
+        <Header @register="register" @login="login" @logout="logout"></Header>
+        <div class="main">
+            <router-view></router-view>
+        </div>
+        <Footer></Footer>
         <Register :showRegister="showRegister" @close="closeRegister"></Register>
         <Login :showLogin="showLogin" @close="closeLogin"></Login>
     </div>
@@ -20,22 +16,27 @@
         color: #303133;
         text-align: center;
     }
+
     body>.el-container {
         margin-bottom: 40px;
     }
+
     .main {
         padding-top: 1px;
+        min-height: 800px;
     }
 </style>
 <script>
     import Api from 'Api/user_api.js'
     import Header from '@/routes/user/layout/header/index.vue'
+    import Footer from '@/routes/user/layout/footer/index.vue'
     import Register from '@/routes/user/components/register/index.vue'
     import Login from '@/routes/user/components/login/index.vue'
     import Home from '@/routes/user/home/index.vue'
     export default {
         components: {
             Header,
+            Footer,
             Register,
             Login,
             Home
@@ -47,14 +48,14 @@
             }
         },
         created() {
-            this.getSiteInfo(),
+            this.getSite(),
             this.getUserInfo()
         },
         methods: {
-            register(){
+            register() {
                 this.showRegister = true
             },
-            login(){
+            login() {
                 this.showLogin = true
             },
             closeRegister() {
@@ -63,24 +64,24 @@
             closeLogin() {
                 this.showLogin = false
             },
-            getSiteInfo() {
-                this.axios.get(Api.getSiteInfo).then(res => {
-                    if(res.data.code === 0){
-                        this.$store.commit('getSiteInfo', res.data.data)
+            getSite() {
+                this.axios.get(Api.getSite).then(res => {
+                    if (res.data.code === 0) {
+                        this.$store.dispatch('getSite', res.data.data)
                     }
                 })
             },
             getUserInfo() {
                 this.axios.get(Api.getUserInfo).then(res => {
-                    if(res.data.code === 0){
-                        this.$store.commit('getUserInfo', res.data.data)
+                    if (res.data.code === 0) {
+                        this.$store.dispatch('getUserInfo', res.data.data)
                     }
                 })
             },
             logout() {
                 this.axios.get(Api.logout).then(res => {
-                    if(res.data.code === 0){
-                        this.$store.commit('getUserInfo', null)
+                    if (res.data.code === 0) {
+                        this.$store.dispatch('getUserInfo', null)
                         this.$message('已退出登录')
                     }
                 })

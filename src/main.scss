@@ -16,8 +16,18 @@ textarea {
     color: '#606266';
     font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
+p,
+input,
+textarea,
+span {
+    font-size: 14px;
+}
+body {
+    background-color: rgb(250, 250, 250);
+}
 a {
     text-decoration: none;
 }
-.el-dialog__title {
+ul {
+    list-style: none;
 }

@@ -1,0 +1,16 @@
+.main {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+/deep/ .el-tabs__nav-wrap {
+    background-color: #fff;
+    padding: 20px 0 20px;
+    .el-tabs__item {
+        font-size: 16px;
+    }
+}
+/deep/ .el-tabs__content {
+    background-color: #fff;
+    height: auto;
+}

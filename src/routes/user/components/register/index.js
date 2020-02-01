@@ -37,6 +37,9 @@ export default {
     },
     props: ['showRegister'],
     computed: {
+        site_abbrev() {
+            return this.$store.state.site.site_abbrev
+        }
     },
     methods: {
         handleClose() {
@@ -53,8 +56,7 @@ export default {
             // 表单数据
             let formData = new URLSearchParams()
             formData.append('account', this.form.account)
-            formData.append('password', this.form.password)
-            formData.append('checkPassword', this.form.checkPassword)
+            formData.append('password', this.$md5(this.form.password))
             this.fullscreenLoading = true
             // 发送注册请求
             this.axios.post(Api.register, formData)
