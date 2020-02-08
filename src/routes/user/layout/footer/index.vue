@@ -20,12 +20,12 @@
                 </div>
             </div>
             <ul>
-                <li>关于理想</li>
+                <li>关于{{ $store.state.site.site_name_cn }}</li>
                 <li>加入我们</li>
                 <li>广告服务</li>
                 <li>联系方式</li>
                 <li>服务条款</li>
-                <li>理想社区</li>
+                <li>{{ $store.state.site.site_name_cn }}社区</li>
                 <li>更多讨论</li>
             </ul>
             <p>Copyright © 2020 Lixiang All Rights Reserved. 理想版权所有</p>

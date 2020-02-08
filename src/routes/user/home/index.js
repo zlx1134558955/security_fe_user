@@ -5,9 +5,6 @@ export default {
         }
     },
     computed: {
-        site_abbrev() {
-            return this.$store.state.site.site_abbrev
-        }
     },
     methods: {
         jump(){

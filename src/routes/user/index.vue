@@ -27,7 +27,7 @@
     }
 </style>
 <script>
-    import Api from 'Api/user_api.js'
+    import Api from 'Config/user_api.js'
     import Header from '@/routes/user/layout/header/index.vue'
     import Footer from '@/routes/user/layout/footer/index.vue'
     import Register from '@/routes/user/components/register/index.vue'

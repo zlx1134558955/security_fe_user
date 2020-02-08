@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import User from '@/routes/user/index.vue'
 import Admin from '@/routes/admin/index.vue'
-import Api from 'Api/user_api.js'
+import Api from 'Config/user_api.js'
 import Home from '@/routes/user/home/index.vue'
 import Submit from '@/routes/user/submit/index.vue'
 import Member from '@/routes/user/member/index.vue'
@@ -31,7 +31,14 @@ let router = new VueRouter({
                 {
                     path: '/user/submit',
                     component: Submit,
-                    name: '提交漏洞'
+                    name: '提交漏洞',
+                    meta: {
+                        api: {
+                            getCategory: Api.getCategory,
+                            insertImg: Api.insertImg,
+                            submitPost: Api.submitPost
+                        }
+                    }
                 },
                 {
                     path: '/user/member',
@@ -41,7 +48,12 @@ let router = new VueRouter({
                         api: {
                             getMember: Api.getMember,
                             updateMember: Api.updateMember,
-                            setAvatar: Api.setAvatar
+                            setAvatar: Api.setAvatar,
+                            getUserInfo: Api.getUserInfo,
+                            addAddress: Api.addAddress,
+                            editAddress: Api.editAddress,
+                            deleteAddress: Api.deleteAddress,
+                            getAddressList: Api.getAddressList
                         }
                     }
                 },

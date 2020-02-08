@@ -45,9 +45,11 @@
 }
 .submit-btn {
     background-color: rgba(83, 168, 255, 0.2) !important;
-    font-size: 20px;
     font-weight: bold;
     margin-bottom: 30px;
+    /deep/ span {
+        font-size: 20px;
+    }
 }
 .submit-btn:hover {
     background-color: #409EFF !important;

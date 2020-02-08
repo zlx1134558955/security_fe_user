@@ -11,7 +11,7 @@ const store = new Vuex.Store({
         },
         userInfo: {
             username: '',
-            pid: '',
+            id: '',
             avatar: ''
         }
     },
@@ -27,11 +27,11 @@ const store = new Vuex.Store({
         getUserInfo(state, data) {
             state.userInfo = data ? {
                 username: data.username,
-                pid: data.pid,
+                id: data.id,
                 avatar: data.avatar
             } : {
                     username: '',
-                    pid: '',
+                    id: '',
                     avatar: ''
                 }
         }

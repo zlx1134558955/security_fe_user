@@ -1,12 +1,6 @@
-import Api from 'Api/user_api.js'
+import ENV from 'Config/env.js'
 export default {
     computed: {
-        siteNameCN() {
-            return this.$store.state.site.site_name_cn
-        },
-        siteNameEN() {
-            return this.$store.state.site.site_name_en
-        },
         userInfo() {
             return this.$store.state.userInfo
         },
@@ -15,7 +9,7 @@ export default {
             return params[params.length - 1]
         },
         avatar_url() {
-            return `${Api.env}headers/${this.$store.state.userInfo.avatar}`
+            return `${ENV.headerDIR}${this.$store.state.userInfo.avatar}`
         }
     },
     methods: {

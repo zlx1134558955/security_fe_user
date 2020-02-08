@@ -1,4 +1,4 @@
-import Api from 'Api/user_api.js'
+import Api from 'Config/user_api.js'
 export default {
     data() {
         return {
@@ -36,41 +36,29 @@ export default {
                 if (!valid) {
                     return
                 }
+                // 表单数据
+                let form = {
+                    account: this.form.account,
+                    password: this.$md5(this.form.password)
+                }
+                this.fullscreenLoading = true
+                // 发送登录请求
+                this.axios.post(Api.login, form)
+                    .then(res => {
+                        if (res.data.code === 0) {
+                            this.$emit('close')
+                            this.$store.commit('getUserInfo', res.data.data)
+                            this.fullscreenLoading = false
+                            this.$message({
+                                message: '登录成功',
+                                type: 'success'
+                            });
+                        } else {
+                            this.err = res.data.message
+                            this.fullscreenLoading = false
+                        }
+                    })
             })
-            // 表单数据
-            let formData = new URLSearchParams()
-            formData.append('account', this.form.account)
-            formData.append('password', this.$md5(this.form.password))
-            this.fullscreenLoading = true
-            // 发送登录请求
-            this.axios.post(Api.login, formData)
-                .then(res => {
-                    if (res.data.code === 0) {
-                        this.$emit('close')
-                        this.$store.commit('getUserInfo', res.data.data)
-                        this.fullscreenLoading = false
-                        this.$message({
-                            message: '登录成功',
-                            type: 'success'
-                        });
-                    } else {
-                        this.err = res.data.message
-                        this.fullscreenLoading = false
-                    }
-                })
-        },
-        getByteLen(val) {
-            var len = 0;
-            for (var i = 0; i < val.length; i++) {
-                var a = val.charAt(i);
-                if (a.match(/[^\x00-\xff]/ig) != null) {
-                    len += 2;
-                }
-                else {
-                    len += 1;
-                }
-            }
-            return len;
         }
     },
     created() {

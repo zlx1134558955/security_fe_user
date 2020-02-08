@@ -5,6 +5,11 @@ export default {
         return {
             title: '个人中心',
             desc: '',
+            userInfo: {
+                id: '',
+                username: '',
+                avatar: ''
+            }
         }
     },
     components: {
@@ -12,5 +17,18 @@ export default {
         Person
     },
     methods: {
+        getUserInfo() {
+            let url = this.$route.meta.api.getUserInfo
+            this.axios.get(url).then(res => {
+                if (res.data.data) {
+                    this.userInfo = res.data.data
+                } else {
+                    this.$router.push('/user/home')
+                }
+            })
+        }
+    },
+    created(){
+        this.getUserInfo()
     }
 }

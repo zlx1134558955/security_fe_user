@@ -1,4 +1,4 @@
-import Api from 'Api/user_api.js'
+import Api from 'Config/user_api.js'
 export default {
     data() {
         var validatePass2 = (rule, value, callback) => {
@@ -52,27 +52,28 @@ export default {
                 if (!valid) {
                     return
                 }
+                // 表单数据
+                let form = {
+                    account: this.form.account,
+                    password: this.$md5(this.form.password)
+                }
+                this.fullscreenLoading = true
+                // 发送注册请求
+                this.axios.post(Api.register, form)
+                    .then(res => {
+                        if (res.data.code === 0) {
+                            this.$emit('close')
+                            this.fullscreenLoading = false
+                            this.$message({
+                                message: '注册成功',
+                                type: 'success'
+                            });
+                        } else {
+                            this.err = res.data.message
+                            this.fullscreenLoading = false
+                        }
+                    })
             })
-            // 表单数据
-            let formData = new URLSearchParams()
-            formData.append('account', this.form.account)
-            formData.append('password', this.$md5(this.form.password))
-            this.fullscreenLoading = true
-            // 发送注册请求
-            this.axios.post(Api.register, formData)
-                .then(res => {
-                    if (res.data.code === 0) {
-                        this.$emit('close')
-                        this.fullscreenLoading = false
-                        this.$message({
-                            message: '注册成功',
-                            type: 'success'
-                        });
-                    } else {
-                        this.err = res.data.message
-                        this.fullscreenLoading = false
-                    }
-                })
         }
     },
     created() {

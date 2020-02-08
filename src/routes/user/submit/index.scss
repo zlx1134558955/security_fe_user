@@ -44,3 +44,24 @@
     font-size: 20px;
     color: #303133;
 }
+.el-cascader {
+    width: 250px;
+}
+/deep/ .ql-blank {
+    background-color: #fff;
+}
+.bug-detail {
+    /deep/ .el-form-item__content {
+        line-height: normal;
+    }
+    /deep/ .el-form-item__label::before {
+        content: '*';
+        color: #F56C6C;
+        margin-right: 4px;
+    }
+}
+.agreement:hover,
+.agreement:visited,
+.agreement {
+    color: #409EFF;
+}
