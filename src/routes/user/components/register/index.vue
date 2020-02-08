@@ -1,5 +1,5 @@
 <template>
-    <el-dialog title="注册" width="600px" :visible="showRegister" :before-close="handleClose">
+    <el-dialog title="注册" width="600px" :visible="showRegister" :before-close="handleClose" :close-on-click-modal="false">
         <div class="company-abbrev">L<span class="other-color">x</span>SMP</div>
         <el-form label-width="80px" :model="form" :rules="rules" ref="formName">
             <el-form-item label="账号" prop="account">

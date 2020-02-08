@@ -9,8 +9,11 @@ export default {
                 id: '',
                 username: '',
                 avatar: ''
-            }
+            },
+            active: this.$router.history.current.query.active ? this.$router.history.current.query.active : 'center'
         }
+    },
+    computed: {
     },
     components: {
         Tip,

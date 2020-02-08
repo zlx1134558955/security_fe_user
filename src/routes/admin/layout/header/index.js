@@ -1,0 +1,22 @@
+import ENV from 'Config/env.js'
+export default {
+    computed: {
+        adminInfo() {
+            return this.$store.state.adminInfo
+        },
+        avatar_url() {
+            return `${ENV.headerDIR}${this.$store.state.adminInfo.avatar}`
+        }
+    },
+    methods: {
+        login(){
+            this.$emit('login')
+        },
+        handleCommand(command) {
+            if(command === 'logout') this.logout()
+        },
+        logout(){
+            this.$emit('logout')
+        },
+    }
+}

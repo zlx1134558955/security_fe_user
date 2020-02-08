@@ -1,0 +1,27 @@
+.el-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #fff;
+    border-bottom: 1px solid #eeeeee;
+}
+.person {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 180px;
+}
+.avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    img {
+        height: 30px;
+        width: 30px;
+    }
+}
+.el-dropdown-link {
+    cursor: pointer;
+    color: #303133;
+}

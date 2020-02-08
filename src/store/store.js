@@ -13,6 +13,11 @@ const store = new Vuex.Store({
             username: '',
             id: '',
             avatar: ''
+        },
+        adminInfo: {
+            username: '',
+            id: '',
+            avatar: ''
         }
     },
     mutations: {
@@ -34,6 +39,17 @@ const store = new Vuex.Store({
                     id: '',
                     avatar: ''
                 }
+        },
+        getAdminInfo(state, data) {
+            state.adminInfo = data ? {
+                username: data.username,
+                id: data.id,
+                avatar: data.avatar
+            } : {
+                    username: '',
+                    id: '',
+                    avatar: ''
+                }
         }
     },
     actions: {
@@ -42,6 +58,9 @@ const store = new Vuex.Store({
         },
         getUserInfo({ commit }, data) {
             commit('getUserInfo', data)
+        },
+        getAdminInfo({ commit }, data) {
+            commit('getAdminInfo', data)
         }
     }
 })

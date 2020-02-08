@@ -60,7 +60,9 @@ export default {
                 }
                 let file = this.form.attach   //获取文件对象
                 let form = new FormData()
-                form.append('file', file, file.name) //将文件添加到formdata中
+                if(file){
+                    form.append('file', file, file.name) //将文件添加到formdata中
+                }
                 form.append('chunk', '0')
                 form.append('title', this.form.name)
                 form.append('content', this.form.content)
@@ -71,6 +73,7 @@ export default {
                 this.axios.post(this.$route.meta.api.submitPost, form, config) //传输数据
                     .then(res => {
                         if (res.data.code === 0) {
+                            this.$router.push('/user/member?active=mypost')
                             this.$message({
                                 message: '提交成功',
                                 type: 'success'
