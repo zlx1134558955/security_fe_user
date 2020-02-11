@@ -2,6 +2,8 @@
     width: 1200px;
     margin: 0 auto;
     padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
 }
 /deep/ .el-tabs__nav-wrap {
     background-color: #fff;
@@ -13,4 +15,14 @@
 /deep/ .el-tabs__content {
     background-color: #fff;
     height: auto;
+}
+.el-menu-item {
+    width: 100%;
+}
+.right-content {
+    background-color: #fff;
+    flex-basis: 85%;
+}
+.member-menu {
+    flex-basis: 14%;
 }

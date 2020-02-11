@@ -13,5 +13,7 @@ export default {
     deleteAddress: '/user/delete-address',
     getAddressList: '/user/address-list',
     insertImg: '/user/insert-image',
-    submitPost: '/user/submit-post'
+    submitPost: '/user/submit-post',
+    getPostList: '/user/post-list',
+    getPostDetail: '/user/post-detail',
 }

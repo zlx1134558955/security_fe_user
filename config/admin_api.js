@@ -4,5 +4,10 @@ export default {
     register: '/admin/register',
     login: '/admin/login',
     getAdminInfo: '/admin/info',
-    logout: '/admin/logout'
+    logout: '/admin/logout',
+    setWebsite: '/admin/set-website',
+    getFrontUsers: '/admin/front-user',
+    forbidFrontUser: '/admin/forbid-front-user',
+    unfreezeFrontUser: '/admin/unfreeze-front-user',
+    deleteFrontUser: '/admin/delete-front-user'
 }

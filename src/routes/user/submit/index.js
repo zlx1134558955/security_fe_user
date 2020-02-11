@@ -73,7 +73,7 @@ export default {
                 this.axios.post(this.$route.meta.api.submitPost, form, config) //传输数据
                     .then(res => {
                         if (res.data.code === 0) {
-                            this.$router.push('/user/member?active=mypost')
+                            this.$router.push('/user/member/mypost')
                             this.$message({
                                 message: '提交成功',
                                 type: 'success'

@@ -3,7 +3,9 @@
         <Aside></Aside>
         <el-container class="right">
             <Header @login="login" @logout="logout"></Header>
-            <el-main>Main</el-main>
+            <el-main>
+                <router-view></router-view>
+            </el-main>
         </el-container>
         <Register :showRegister="showRegister" @close="closeRegister"></Register>
         <Login :showLogin="showLogin" @close="closeLogin"></Login>

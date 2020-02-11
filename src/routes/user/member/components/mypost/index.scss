@@ -1,0 +1,43 @@
+.content {
+    padding: 30px;
+}
+.logo {
+    font-size: 60px;
+    background-color: #67C23A;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+}
+.num-box {
+    display: flex;
+    align-items: center;
+}
+.info {
+    font-size: 18px;
+    margin-left: 20px;
+}
+.num {
+    color: #409EFF;
+    font-size: 20px;
+    padding: 5px;
+}
+.title {
+    color: #606266;
+}
+/deep/ .el-table__body-wrapper {
+    border-bottom: none;
+}
+.table {
+    margin-top: 20px;
+}
+.post-title,
+.post-title:hover,
+.post-title:visited {
+    color: #409EFF;
+}
+.post-title:hover {
+    cursor: pointer;
+}

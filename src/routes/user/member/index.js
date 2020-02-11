@@ -1,5 +1,6 @@
 import Tip from '@/routes/user/components/tip/index.vue'
 import Person from './components/person/index.vue'
+import Mypost from './components/mypost/index.vue'
 export default {
     data() {
         return {
@@ -10,14 +11,15 @@ export default {
                 username: '',
                 avatar: ''
             },
-            active: this.$router.history.current.query.active ? this.$router.history.current.query.active : 'center'
+            active: this.$router.history.current.meta.tab
         }
     },
     computed: {
     },
     components: {
         Tip,
-        Person
+        Person,
+        Mypost
     },
     methods: {
         getUserInfo() {
@@ -29,6 +31,13 @@ export default {
                     this.$router.push('/user/home')
                 }
             })
+        },
+        jump(target) {
+            let url = `/user/member/${target}`
+            if(url === this.$router.history.current.path){
+                return
+            }
+            this.$router.push(url)
         }
     },
     created(){

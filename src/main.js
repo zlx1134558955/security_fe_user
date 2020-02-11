@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import router from './router.js'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-// import filter from './utils/filter/filter.js'
+import filter from '@/utils/filter/filter.js'
 import store from './store/store.js'
 import './main.scss'
 import axios from 'axios'
@@ -21,7 +21,7 @@ Vue.use(VueAxios, axios)
 axios.defaults.baseURL = 'http://localhost:8888'
 axios.defaults.withCredentials = true
 
-// Vue.filter('timeFormat', filter.timeFormat)
+Vue.filter('timeFormat', filter.formatTime)
 
 Vue.prototype.$md5 = MD5
 

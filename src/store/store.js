@@ -7,7 +7,11 @@ const store = new Vuex.Store({
             site_name_cn: '',
             site_name_en: '',
             site_intro: '',
-            site_abbrev: ''
+            site_abbrev: '',
+            site_qq: '',
+            site_email: '',
+            site_weibo: '',
+            site_wechat: ''
         },
         userInfo: {
             username: '',
@@ -22,12 +26,7 @@ const store = new Vuex.Store({
     },
     mutations: {
         getSite(state, data) {
-            state.site = {
-                site_name_cn: data[0].value,
-                site_intro: data[1].value,
-                site_name_en: data[9].value,
-                site_abbrev: data[10].value
-            }
+            state.site = data
         },
         getUserInfo(state, data) {
             state.userInfo = data ? {
