@@ -6,6 +6,9 @@ export default {
         },
         avatar_url() {
             return `${ENV.headerDIR}${this.$store.state.adminInfo.avatar}`
+        },
+        type() {
+            return this.$store.state.adminInfo.type
         }
     },
     methods: {

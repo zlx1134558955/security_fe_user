@@ -34,7 +34,7 @@
                      <el-upload class="upload-demo" action="/" :http-request="setWechat"
                         :show-file-list="false" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp">
                         <el-button size="small">上传公众号二维码</el-button>
-                        <div slot="tip" class="el-upload__tip">支持.jpg、.jpeg、.png、.gif、.bmp、.webp文件</div>
+                        <div slot="tip" class="el-upload__tip">支持.jpg、.jpeg、.png、.gif、.bmp、.webp文件，限制大小为2M以内</div>
                     </el-upload>
                  </div>
             </el-form-item>

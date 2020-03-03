@@ -65,7 +65,7 @@
                     <el-upload class="upload-demo" action="/" :http-request="setAvatar" :file-list="file"
                         :show-file-list="false" :on-change="handleChange" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp">
                         <el-button size="small">点击上传</el-button>
-                        <div slot="tip" class="el-upload__tip">支持.jpg、.jpeg、.png、.gif、.bmp、.webp文件</div>
+                        <div slot="tip" class="el-upload__tip">支持.jpg、.jpeg、.png、.gif、.bmp、.webp文件，限制大小为2M以内</div>
                     </el-upload>
                 </el-form-item>
                 <el-form-item label="昵称" prop="username">

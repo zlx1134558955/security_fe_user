@@ -9,5 +9,11 @@ export default {
     user_status: {
         0: '禁止登录',
         1: '正常'
+    },
+    rankLevel: {
+        1: '无影响',
+        2: '低危',
+        3: '中危',
+        4: '高危'
     }
 }

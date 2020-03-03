@@ -2,6 +2,8 @@
     <el-header>
         <el-button round @click="login" v-if="!adminInfo.id">登录</el-button>
         <div class="person" v-if="adminInfo.id">
+                <el-tag type="warning" v-if="type === 1">超级管理员</el-tag>
+                <el-tag type="info" v-if="type !== 1">普通管理员</el-tag>
                 <div class="avatar"><img :src="avatar_url" alt=""></div>
                 <div class="person-info">
                     <el-dropdown @command="handleCommand">

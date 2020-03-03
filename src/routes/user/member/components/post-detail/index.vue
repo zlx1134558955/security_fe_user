@@ -4,9 +4,9 @@
         <div>
             <p class="little-title">基本信息</p>
             <p>提交时间：{{ detail.time | timeFormat('yyyy-MM-dd hh:mm:ss') }}</p>
-            <p>当前状态：{{ map.post_status[detail.type] }}</p>
-            <p>漏洞类型：{{ detail.cate_id }}</p>
-            <p>危害等级：{{ detail.rank }}</p>
+            <p>当前状态：{{ map.post_status[detail.status] }}</p>
+            <p>漏洞类型：{{ getCateName(detail.cate_id) }}</p>
+            <p>危害等级：{{ map.rankLevel[detail.rank] }}</p>
             <p>获得安全点：{{ detail.points }}</p>
             <p>获得积分：{{ detail.score }}</p>
         </div>
@@ -14,13 +14,13 @@
         <div>
             <p class="little-title">漏洞详情</p>
             <div v-html="detail.content">
-
             </div>
         </div>
         <el-divider v-if="detail.attachment"></el-divider>
         <div v-if="detail.attachment">
             <p class="little-title">漏洞附件</p>
-            <p>{{ detail.attachment }}</p>
+            <p class="attach-name">{{ detail.attachment }}</p>
+            <el-button type="primary" size="mini" @click="getAttachment" class="download-attach">下载附件</el-button>
         </div>
         <el-divider></el-divider>
         <div>

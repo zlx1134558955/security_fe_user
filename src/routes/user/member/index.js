@@ -1,6 +1,7 @@
 import Tip from '@/routes/user/components/tip/index.vue'
 import Person from './components/person/index.vue'
 import Mypost from './components/mypost/index.vue'
+import HomePage from './components/homepage/index.vue'
 export default {
     data() {
         return {
@@ -19,7 +20,8 @@ export default {
     components: {
         Tip,
         Person,
-        Mypost
+        Mypost,
+        HomePage
     },
     methods: {
         getUserInfo() {

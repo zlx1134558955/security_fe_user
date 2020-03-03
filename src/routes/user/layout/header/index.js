@@ -30,7 +30,7 @@ export default {
         toMember(){
             let target = '/user/member'
             if(this.$route.path === target) return
-            this.$router.push('/user/member')
+            this.$router.push('/user/member/homepage')
         },
         handleCommand(command) {
             if(command === 'logout') this.logout()

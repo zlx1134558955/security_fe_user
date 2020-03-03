@@ -1,6 +1,7 @@
 export default {
     getSite: '/site',
     getCategory: '/category',
+    getCategoryMap: 'category-map',
     register: '/user/register',
     login: '/user/login',
     getUserInfo: '/user/info',
@@ -16,4 +17,6 @@ export default {
     submitPost: '/user/submit-post',
     getPostList: '/user/post-list',
     getPostDetail: '/user/post-detail',
+    getPostState: '/user/post-state',
+    getAttachment: '/user/get-attachment'
 }

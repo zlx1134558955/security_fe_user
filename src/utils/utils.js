@@ -11,6 +11,8 @@ function getByteLen(val) {
     }
     return len;
 }
+
+
 export default  {
     getByteLen: getByteLen
 }

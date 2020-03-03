@@ -13,14 +13,24 @@
             <el-button type="primary" @click="getFrontUsers">查询</el-button>
         </div>
         <!-- 表格 -->
-        <el-table :data="list" height="800" style="width: 99%" border>
-            <el-table-column prop="pid" label="账号" width="180">
+        <el-table :data="list" height="780" style="width: 100%" border>
+            <el-table-column prop="account" label="账号" width="180">
             </el-table-column>
-            <el-table-column prop="username" label="用户名" width="400">
+            <el-table-column prop="username" label="用户名">
             </el-table-column>
             <el-table-column prop="points" label="安全点">
             </el-table-column>
             <el-table-column prop="score" label="积分">
+            </el-table-column>
+            <el-table-column prop="create_at" label="创建时间">
+                    <template slot-scope="scoped">
+                        <span>{{ scoped.row.create_at | timeFormat('yyyy-MM-dd hh:mm:ss') }}</span>
+                    </template>
+                </el-table-column>
+            <el-table-column prop="update_at" label="最后登录时间">
+                <template slot-scope="scoped">
+                    <span>{{ scoped.row.update_at | timeFormat('yyyy-MM-dd hh:mm:ss') }}</span>
+                </template>
             </el-table-column>
             <el-table-column prop="status" label="用户状态">
                 <template slot-scope="scoped">
@@ -38,7 +48,7 @@
             </el-table-column>
         </el-table>
         <!-- 分页 -->
-        <el-pagination @size-change="getFrontUsers" @current-change="getFrontUsers" :current-page="currentPage"
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage"
             :page-sizes="pageList" :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper"
             :total="total">
         </el-pagination>

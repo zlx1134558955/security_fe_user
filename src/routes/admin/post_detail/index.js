@@ -4,41 +4,20 @@ export default {
         return {
             id: this.$router.history.current.query.id,
             detail: {
-                title: ''
+                title: '',
+                rank: 1
             },
-            postState: [],
             map: MAP,
-            steps: [
-                {
-                    content: '已提交',
-                    timestamp: '',
-                    color: '#409EFF'
-                },
-                {
-                    content: '审核中',
-                    timestamp: '',
-                    color: '#409EFF'
-                },
-                {
-                    content: '已确认/已忽略',
-                    timestamp: ''
-                },
-                {
-                    content: '已修复',
-                    timestamp: ''
-                },
-                {
-                    content: '已完成',
-                    timestamp: ''
-                }
-            ],
-            categoryMap: []
+            categoryMap: [],
+            advise: 2,
+            reason: '',
+            postState: []
         }
     },
     created() {
         this.getPostDetail()
-        this.getCategoryMap()
         this.getPostState()
+        this.getCategoryMap()
     },
     methods: {
         formatTime(value, fmt) {
@@ -68,8 +47,6 @@ export default {
             this.axios.post(url, form).then(res => {
                 if (res.data.code === 0) {
                     this.detail = res.data.data
-                    this.steps[0].timestamp = this.formatTime(this.detail.time, 'yyyy-MM-dd hh:mm:ss')
-                    this.steps[1].timestamp = this.formatTime(this.detail.time, 'yyyy-MM-dd hh:mm:ss')
                 }
             })
         },
@@ -81,26 +58,13 @@ export default {
             this.axios.post(url, form).then(res => {
                 if (res.data.code === 0) {
                     this.postState = res.data.data
-                    this.handleSteps(this.postState)
+                    let obj = {
+                        time: this.detail.time,
+                        status: 1
+                    }
+                    this.postState.unshift(obj)
                 }
             })
-        },
-        handleSteps(postState) {
-            if (postState.length === 0) {
-                return
-            }
-            if (postState.length === 1 && postState[0].status === 2) {
-                this.steps[2].content = '已忽略'
-                this.steps[2].color = '#409EFF'
-                this.steps[2].timestamp = this.formatTime(postState[0].time, 'yyyy-MM-dd hh:mm:ss')
-                this.steps.splice(3)
-            } else {
-                this.steps[2].content = '已确认'
-                postState.forEach((value, index) => {
-                    this.steps[index + 2].color = '#409EFF'
-                    this.steps[index + 2].timestamp = this.formatTime(postState[index].time, 'yyyy-MM-dd hh:mm:ss')
-                })
-            }
         },
         getCategoryMap() {
             let url = this.$route.meta.api.getCategoryMap
@@ -113,12 +77,31 @@ export default {
         getCateName(id) {
             let name
             this.categoryMap.some(item => {
-                if (id === item.id) {
+                if(id === item.id){
                     name = item.name
                     return true
                 }
             })
             return name
+        },
+        reviewPost(status){
+            let form = {
+                id: this.id,
+                status: status,
+                rank: this.detail.rank,
+                score: this.detail.score,
+                points: this.detail.points,
+                content: this.reason
+            }
+            this.axios.post(this.$route.meta.api.reviewPost, form).then(res => {
+                if(res.data.code === 0){
+                    this.$message({
+                        message: '状态提交成功',
+                        type: 'success'
+                    })
+                    this.getPostDetail()
+                }
+            })
         },
         getAttachment() {
             let form = {

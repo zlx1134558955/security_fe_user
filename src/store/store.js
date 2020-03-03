@@ -21,7 +21,8 @@ const store = new Vuex.Store({
         adminInfo: {
             username: '',
             id: '',
-            avatar: ''
+            avatar: '',
+            type: ''
         }
     },
     mutations: {
@@ -43,11 +44,13 @@ const store = new Vuex.Store({
             state.adminInfo = data ? {
                 username: data.username,
                 id: data.id,
-                avatar: data.avatar
+                avatar: data.avatar,
+                type: data.type
             } : {
                     username: '',
                     id: '',
-                    avatar: ''
+                    avatar: '',
+                    type: ''
                 }
         }
     },

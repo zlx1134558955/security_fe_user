@@ -1,4 +1,5 @@
 import MAP from '@/utils/map/map.js'
+import AddAdmin from '../add-admin/index.vue'
 export default {
     data() {
         return {
@@ -26,15 +27,27 @@ export default {
                 }
             ],
             showDelete: false,
-            deleteId: 0
+            deleteId: 0,
+            showAdd: false
         }
     },
+    components: {
+        AddAdmin
+    },
     created() {
-        this.getFrontUsers()
+        this.getAdminUsers()
+    },
+    computed: {
+        currentId() {
+            return this.$store.state.adminInfo.id
+        },
+        type() {
+            return this.$store.state.adminInfo.type
+        }
     },
     methods: {
-        getFrontUsers() {
-            let url = this.$route.meta.api.getFrontUsers
+        getAdminUsers() {
+            let url = this.$route.meta.api.getAdminUsers
             let form = {
                 status: this.status,
                 account: this.account,
@@ -49,8 +62,8 @@ export default {
                 }
             })
         },
-        forbidFrontUser(id) {
-            let url = this.$route.meta.api.forbidFrontUser
+        forbidAdminUser(id) {
+            let url = this.$route.meta.api.forbidAdminUser
             let form = {
                 id: id
             }
@@ -60,12 +73,12 @@ export default {
                         message: '用户禁用成功',
                         type: 'warning'
                     })
-                    this.getFrontUsers()
+                    this.getAdminUsers()
                 }
             })
         },
-        unfreezeFrontUser(id) {
-            let url = this.$route.meta.api.unfreezeFrontUser
+        unfreezeAdminUser(id) {
+            let url = this.$route.meta.api.unfreezeAdminUser
             let form = {
                 id: id
             }
@@ -75,7 +88,7 @@ export default {
                         message: '用户限制解除',
                         type: 'success'
                     })
-                    this.getFrontUsers()
+                    this.getAdminUsers()
                 }
             })
         },
@@ -84,7 +97,7 @@ export default {
             this.deleteId = id
         },
         deleteUser() {
-            let url = this.$route.meta.api.deleteFrontUser
+            let url = this.$route.meta.api.deleteAdminUser
             let form = {
                 id: this.deleteId
             }
@@ -94,18 +107,24 @@ export default {
                         message: '用户已删除',
                         type: 'warning'
                     })
-                    this.getFrontUsers()
+                    this.getAdminUsers()
                     this.showDelete = false
                 }
             })
         },
+        addAdmin() {
+            this.showAdd = true
+        },
+        closeAdd() {
+            this.showAdd = false
+        },
         handleSizeChange(val) {
             this.pageSize = val
-            this.getFrontUsers()
+            this.getAdminUsers()
         },
         handleCurrentChange(val) {
             this.currentPage = val
-            this.getFrontUsers()
+            this.getAdminUsers()
         }
     }
 }

@@ -1,29 +1,37 @@
-import Api from 'Config/admin_api.js'
+import Utils from '@/utils/utils'
 export default {
     data() {
+        let validateTwenty = (rule, value, callback) => {
+            if (Utils.getByteLen(value) > 20) {
+                callback(new Error('漏洞名称不能大于20个字符或10个汉字'));
+            } else {
+                callback();
+            }
+        }
         return {
             labelPosition: 'right',
             form: {
-                account: '',
-                password: ''
+                name: '',
+                pid: 0
             },
             rules: {
-                account: [
-                    { required: true, message: '账号不能为空', trigger: 'blur' }
+                name: [
+                    { required: true, message: '漏洞名称不能为空', trigger: 'blur' },
+                    { validator: validateTwenty, trigger: 'blur'}
                 ],
                 password: [
-                    { required: true, message: '密码不能为空', trigger: 'blur' }
+                    { required: true, message: '请选择漏洞所属分类', trigger: 'change' }
                 ]
             },
             err: '',
             fullscreenLoading: false
         };
     },
-    props: ['showLogin'],
+    props: ['showUpdate', 'id', 'parentList', 'currentName', 'currentPid'],
     computed: {
-        // site_abbrev() {
-        //     return this.$store.state.site.site_abbrev
-        // }
+        title() {
+            return this.id === 0 ? '添加漏洞分类' : '修改漏洞分类'
+        }
     },
     methods: {
         handleClose() {
@@ -38,19 +46,20 @@ export default {
                 }
                 // 表单数据
                 let form = {
-                    account: this.form.account,
-                    password: this.$md5(this.form.password)
+                    name: this.form.name,
+                    pid: this.form.pid,
+                    id: this.id
                 }
                 this.fullscreenLoading = true
                 // 发送登录请求
-                this.axios.post(Api.login, form)
+                let url = this.$route.meta.api.updateCategory
+                this.axios.post(url, form)
                     .then(res => {
                         if (res.data.code === 0) {
                             this.$emit('close')
-                            this.$store.commit('getAdminInfo', res.data.data)
                             this.fullscreenLoading = false
                             this.$message({
-                                message: '登录成功',
+                                message: '保存成功',
                                 type: 'success'
                             });
                             location.reload()
@@ -63,5 +72,13 @@ export default {
         }
     },
     created() {
+    },
+    watch: {
+        currentName(val) {
+            this.form.name = val
+        },
+        currentPid(val) {
+            this.form.pid = val
+        }
     }
 }
