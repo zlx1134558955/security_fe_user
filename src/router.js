@@ -211,6 +211,7 @@ let router = new VueRouter({
                     meta: {
                         api: {
                             addGift: AdminApi.addGift,
+                            editGift: AdminApi.editGift,
                             getGiftCate: AdminApi.getGiftCate,
                             getGiftsList: AdminApi.getGiftsList
                         }

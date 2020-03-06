@@ -22,6 +22,7 @@ export default {
     getAttachment: '/admin/get-attachment',
     updateCategory: '/admin/update-category',
     addGift: '/admin/add-gift',
+    editGift: '/admin/edit-gift',
     getGiftCate: '/giftcate',
     getGiftsList: '/admin/get-gifts'
 }

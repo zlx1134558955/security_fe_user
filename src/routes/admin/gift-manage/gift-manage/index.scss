@@ -3,11 +3,20 @@
 }
 .btn-box {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .gift-detail {
     overflow : hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
+}
+.select-box {
+    display: flex;
+    align-items: center;
+}
+.visible-box {
+    margin-left: 20px;
 }

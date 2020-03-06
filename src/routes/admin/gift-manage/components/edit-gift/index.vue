@@ -2,18 +2,18 @@
     <el-dialog :title="title" width="600px" :visible="dialogShow" :before-close="handleClose"
         :close-on-click-modal="false">
         <el-scrollbar style="height: 500px">
-            <el-form label-width="220px" :model="form" :rules="rules" ref="formName">
+            <el-form label-width="220px" :model="form" :rules="rules" ref="form">
                 <el-form-item label="礼品名称" prop="title" class="gift-name">
                     <el-input v-model="form.title" placeholder="请输入礼品名称"></el-input>
                 </el-form-item>
-                <el-form-item label="礼品价格" prop="title">
+                <el-form-item label="礼品价格" prop="price">
                     <el-input-number v-model="form.price" :min="1" label="安全点"></el-input-number>
                 </el-form-item>
                 <el-form-item label="礼品库存" prop="stock">
                     <el-input-number v-model="form.stock" :min="1" label="个"></el-input-number>
                 </el-form-item>
                 <el-form-item label="礼品类别" prop="gift_category">
-                    <el-select v-model="form.gift_category" placeholder="请选择是否上架">
+                    <el-select v-model="form.gift_category" placeholder="请选择礼品类别">
                         <el-option v-for="item in cateList" :key="item.id" :label="item.name" :value="item.id">
                         </el-option>
                     </el-select>
@@ -34,8 +34,8 @@
                         </el-upload>
                     </div>
                 </el-form-item>
-                <el-form-item label="礼品详情">
-                    <el-input type="textarea" v-model="form.detail" :rows="5"></el-input>
+                <el-form-item label="礼品详情" prop="detail">
+                    <el-input type="textarea" v-model="form.detail" :rows="5" placeholder="请输入礼品详情"></el-input>
                 </el-form-item>
             </el-form>
         </el-scrollbar>
