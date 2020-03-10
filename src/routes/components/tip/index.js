@@ -1,13 +1,3 @@
 export default {
-    data() {
-        return {
-        }
-    },
-    props: ['title', 'content'],
-    computed: {
-    },
-    methods: {
-    },
-    created() {
-    }
+  props: ['title', 'content']
 }
