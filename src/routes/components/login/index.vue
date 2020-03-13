@@ -1,5 +1,6 @@
 <template>
-  <el-dialog title="登录" width="600px" :visible="showLogin" :before-close="handleClose" :close-on-click-modal="false">
+  <el-dialog title="登录" width="600px" :visible="showLogin || needLogin" :before-close="handleClose"
+    :close-on-click-modal="false">
     <div class="company-abbrev">L<span class="other-color">x</span>SMP</div>
     <el-form label-width="80px" :model="form" :rules="rules" ref="formName">
       <el-form-item label="账号" prop="account">

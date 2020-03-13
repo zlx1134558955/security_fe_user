@@ -18,5 +18,11 @@ export default {
   getPostList: '/user/post-list',
   getPostDetail: '/user/post-detail',
   getPostState: '/user/post-state',
-  getAttachment: '/user/get-attachment'
+  getAttachment: '/user/get-attachment',
+  getGiftCate: '/giftcate',
+  getGiftList: '/user/gift-list',
+  getGiftDetail: '/user/gift-detail',
+  exchangeGift: '/user/exchange-gift',
+  getOrderList: '/user/order-list',
+  getGiftOrder: '/user/gift-order'
 }

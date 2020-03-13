@@ -47,3 +47,12 @@ p {
     color: #606266;
     text-align: center;
 }
+.item:hover {
+  cursor: pointer;
+}
+.connect,
+.connect:hover,
+.connect:visited,
+.connect:link {
+  color: #606266;
+}

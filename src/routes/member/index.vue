@@ -12,9 +12,9 @@
             <i class="el-icon-document"></i>
             <span slot="title">我提交的</span>
           </el-menu-item>
-          <el-menu-item index="3" disabled>
-            <i class="el-icon-document"></i>
-            <span slot="title">导航三</span>
+          <el-menu-item index="gift-order" @click="jump('gift-order')">
+            <i class="el-icon-goods"></i>
+            <span slot="title">礼品订单</span>
           </el-menu-item>
           <el-menu-item index="person" @click="jump('person')">
             <i class="el-icon-user"></i>

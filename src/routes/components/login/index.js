@@ -23,6 +23,9 @@ export default {
   computed: {
     site_abbrev () {
       return this.$store.state.site.site_abbrev
+    },
+    needLogin () {
+      return this.$store.state.needLogin
     }
   },
   methods: {
@@ -48,6 +51,7 @@ export default {
             if (res.data.code === 0) {
               this.$emit('close')
               this.$store.commit('getUserInfo', res.data.data)
+              this.$store.commit('changeLogin', false)
               this.fullscreenLoading = false
               this.$message({
                 message: '登录成功',

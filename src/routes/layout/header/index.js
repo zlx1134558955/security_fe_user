@@ -5,8 +5,7 @@ export default {
       return this.$store.state.userInfo
     },
     activeIndex () {
-      const params = this.$route.path.split('/')
-      return params[params.length - 1]
+      return this.$route.meta.headerTab
     },
     avatar_url () {
       return `${ENV.headerDIR}${this.$store.state.userInfo.avatar}`

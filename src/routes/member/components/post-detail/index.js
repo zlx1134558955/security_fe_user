@@ -63,7 +63,7 @@ export default {
     getPostDetail () {
       const url = this.$route.meta.api.getPostDetail
       const form = {
-        id: this.id
+        id: parseInt(this.id)
       }
       this.axios.post(url, form).then(res => {
         if (res.data.code === 0) {
@@ -156,6 +156,9 @@ export default {
           }
         }
       })
+    },
+    back () {
+      this.$router.push('/member/mypost')
     }
   }
 }

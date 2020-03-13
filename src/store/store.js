@@ -23,7 +23,8 @@ const store = new Vuex.Store({
       id: '',
       avatar: '',
       type: ''
-    }
+    },
+    needLogin: false
   },
   mutations: {
     getSite (state, data) {
@@ -52,6 +53,9 @@ const store = new Vuex.Store({
         avatar: '',
         type: ''
       }
+    },
+    changeLogin (state, value) {
+      state.needLogin = value
     }
   },
   actions: {

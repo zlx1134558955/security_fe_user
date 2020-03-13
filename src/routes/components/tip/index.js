@@ -1,3 +1,3 @@
 export default {
-  props: ['title', 'content']
+  props: ['title', 'content', 'points']
 }

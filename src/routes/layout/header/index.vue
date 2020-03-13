@@ -13,7 +13,7 @@
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
         <el-menu-item index="home">首页</el-menu-item>
         <el-menu-item index="submit">提交漏洞</el-menu-item>
-        <el-menu-item index="hero" disabled>消息中心</el-menu-item>
+        <el-menu-item index="gift">礼品兑换</el-menu-item>
         <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
       </el-menu>
       <div class="btn-box" v-if="!userInfo.id">

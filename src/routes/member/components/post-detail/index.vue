@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <el-button type="primary" size="mini" @click="back" class="back">返回</el-button>
     <h2>{{ detail.title }}</h2>
     <div>
       <p class="little-title">基本信息</p>

@@ -46,6 +46,10 @@ export default {
       })
     },
     submit () {
+      if (!this.$store.state.userInfo.id) {
+        this.$store.commit('changeLogin', true)
+        return
+      }
       this.$refs.form.validate((valid) => {
         if (!valid) {
           return

@@ -13,5 +13,10 @@ export default {
     wechat_url () {
       return this.$store.state.site.site_wechat ? `${ENV.settingDIR}${this.$store.state.site.site_wechat}` : ''
     }
+  },
+  methods: {
+    toWeibo () {
+      window.open(this.weibo)
+    }
   }
 }

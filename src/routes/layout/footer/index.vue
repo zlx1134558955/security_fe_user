@@ -4,21 +4,16 @@
       <div class="contact">
         <div class="item">
           <img src="Public/svg/email.svg" alt="email" height="20" width="20">
-          <el-tooltip effect="dark" :content="email" placement="top">
-            <p>专用邮箱</p>
-          </el-tooltip>
+          <a :href="'mailto:' + email" class="connect">专用邮箱</a>
         </div>
         <div class="item">
           <img src="Public/svg/qq.svg" alt="qq" height="20" width="20">
-          <el-tooltip effect="dark" :content="qq" placement="top">
-            <p>企鹅QQ</p>
-          </el-tooltip>
+          <a class="connect"
+            :href="'tencent://message/?uin=' + qq +'&Menu=yes& Service=300&sigT=42a1e5347953b64c5ff3980f8a6e644d4b31456cb0b6ac6b27663a3c4dd0f4aa14a543b1716f9d45'">企鹅QQ</a>
         </div>
         <div class="item">
           <img src="Public/svg/weibo.svg" alt="weibo" height="20" width="20">
-          <el-tooltip effect="dark" :content="weibo" placement="top">
-            <p>新浪微博</p>
-          </el-tooltip>
+          <p @click="toWeibo">新浪微博</p>
         </div>
         <div class="item weixin">
           <img src="Public/svg/weixin.svg" alt="weixin" height="20" width="20">
