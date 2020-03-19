@@ -24,5 +24,8 @@ export default {
   getGiftDetail: '/user/gift-detail',
   exchangeGift: '/user/exchange-gift',
   getOrderList: '/user/order-list',
-  getGiftOrder: '/user/gift-order'
+  getGiftOrder: '/user/gift-order',
+  getNoticeList: '/user/notice-list',
+  getNoticeDetail: '/user/notice-detail',
+  getNoticeAttachment: '/user/get-notice-attachment'
 }

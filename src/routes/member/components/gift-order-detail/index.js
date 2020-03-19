@@ -15,7 +15,11 @@ export default {
         end_time: '',
         create_time: '',
         title: '',
-        image: ''
+        image: '',
+        realname: '',
+        zipcode: '',
+        adetail: '',
+        mobile: ''
       },
       map: MAP,
       steps: [

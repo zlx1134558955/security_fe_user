@@ -10,7 +10,7 @@
           <el-form-item label="漏洞类型" prop="type">
             <el-cascader v-model="form.type" :options="category" :props="{ expandTrigger: 'hover' }"></el-cascader>
           </el-form-item>
-          <el-form-item label="漏洞详情" prop="content、" class="bug-detail">
+          <el-form-item label="漏洞详情" prop="content" class="bug-detail">
             <Editor v-model="form.content"></Editor>
           </el-form-item>
           <el-form-item label="上传附件" prop="content" class="upload-attach">

@@ -1,0 +1,34 @@
+.main {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    height: 700px;
+}
+.filt {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  .filt-label {
+      margin-left: 20px;
+  }
+  margin-bottom: 10px;
+}
+.el-input {
+  width: 250px;
+}
+.el-pagination {
+  margin-top: 5px;
+}
+.notice-detail {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.look {
+  color: #409EFF;
+}
+.look:hover {
+  cursor: pointer;
+}

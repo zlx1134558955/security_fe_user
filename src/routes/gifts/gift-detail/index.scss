@@ -2,7 +2,11 @@
     width: 1200px;
     margin: 0 auto;
     padding: 20px 0;
-    height: 620px;
+    height: 640px;
+}
+.content {
+  height: 640px;
+  background-color: #fff;
 }
 .tip {
   font-size: 14px;
@@ -12,9 +16,9 @@
 .gift-box {
   display: flex;
   justify-content: center;
-  height: 620px;
+  height: 300px;
+  width: 860px;
   background-color: #fff;
-  padding: 20px;
 }
 .gift-img {
   width: 300px;
@@ -26,7 +30,7 @@
   width: 500px;
   margin-left: 50px;
   p {
-    margin: 10px 0;
+    margin: 5px 0;
   }
 }
 /deep/ .el-collapse-item__header {
@@ -69,4 +73,33 @@ pre {
     top: 20px;
     right: 20px;
   }
+}
+.address {
+  display: flex;
+  font-size: 14px;
+}
+.address-item {
+  margin-top: 10px;
+  /deep/ .el-card__body {
+    padding: 5px;
+    width: 300px;
+  }
+  padding: 0;
+  p {
+    margin: 0;
+  }
+}
+.address-item:hover {
+  cursor: pointer;
+}
+/deep/ .el-collapse-item__wrap {
+  width: 600px;
+  height: 250px;
+}
+.big-box {
+  padding: 20px;
+}
+.scroll-box {
+  width: 320px;
+  margin-left: 5px;
 }

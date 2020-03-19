@@ -13,6 +13,8 @@ import Gift from '@/routes/gifts/index.vue'
 import GiftDetail from '@/routes/gifts/gift-detail/index.vue'
 import GiftOrder from '@/routes/member/components/gift-order/index.vue'
 import GiftOrderDetail from '@/routes/member/components/gift-order-detail/index.vue'
+import Notice from '@/routes/notice/index.vue'
+import NoticeDetail from '@/routes/notice/notice-detail/index.vue'
 
 Vue.use(VueRouter)
 
@@ -64,9 +66,36 @@ const router = new VueRouter({
         api: {
           getGiftDetail: Api.getGiftDetail,
           getMember: Api.getMember,
-          exchangeGift: Api.exchangeGift
+          exchangeGift: Api.exchangeGift,
+          getGiftCate: Api.getGiftCate,
+          addAddress: Api.addAddress,
+          editAddress: Api.editAddress,
+          getAddressList: Api.getAddressList
         },
         headerTab: 'gift'
+      }
+    },
+    {
+      path: '/notice',
+      component: Notice,
+      name: '网站公告',
+      meta: {
+        api: {
+          getNoticeList: Api.getNoticeList
+        },
+        headerTab: 'notice'
+      }
+    },
+    {
+      path: '/notice-detail',
+      component: NoticeDetail,
+      name: '公告详情',
+      meta: {
+        api: {
+          getNoticeDetail: Api.getNoticeDetail,
+          getNoticeAttachment: Api.getNoticeAttachment
+        },
+        headerTab: 'notice'
       }
     },
     {

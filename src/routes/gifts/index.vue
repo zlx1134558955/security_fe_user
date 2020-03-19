@@ -4,7 +4,7 @@
     <div class="main">
       <el-tabs v-model="activeCate">
         <el-tab-pane v-for="item in giftCateList" :key="item.id" :label="item.name" :name="item.id.toString()">
-          <el-scrollbar style="height: 720px">
+          <el-scrollbar style="height: 630px">
             <div class="gift-list">
               <el-card :body-style="{ padding: '0px' }" v-for="item in giftList" :key="item.id" class="gift-card">
                 <div class="img-box">

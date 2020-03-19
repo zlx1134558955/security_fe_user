@@ -1,0 +1,26 @@
+.main {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    height: 700px;
+}
+/deep/ .el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+.time,
+.notice-title {
+  text-align: center;
+}
+.time {
+  margin: 15px 0;
+}
+.content {
+  padding: 20px;
+  position: relative;
+  background-color: #fff;
+  .back {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}

@@ -20,6 +20,14 @@
         </div>
       </div>
     </div>
+    <el-divider v-if="detail.type === 1"></el-divider>
+    <div v-if="detail.type === 1">
+      <p class="little-title">收货地址</p>
+      <p>收货人：{{ detail.realname }}</p>
+      <p>手机号码：{{ detail.mobile }}</p>
+      <p>邮编：{{ detail.zipcode }}</p>
+      <p>详细地址：{{ detail.adetail }}</p>
+    </div>
     <el-divider></el-divider>
     <div>
       <p class="little-title">订单信息</p>
