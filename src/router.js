@@ -15,6 +15,7 @@ import GiftOrder from '@/routes/member/components/gift-order/index.vue'
 import GiftOrderDetail from '@/routes/member/components/gift-order-detail/index.vue'
 import Notice from '@/routes/notice/index.vue'
 import NoticeDetail from '@/routes/notice/notice-detail/index.vue'
+import Ranking from '@/routes/ranking/index.vue'
 
 Vue.use(VueRouter)
 
@@ -96,6 +97,17 @@ const router = new VueRouter({
           getNoticeAttachment: Api.getNoticeAttachment
         },
         headerTab: 'notice'
+      }
+    },
+    {
+      path: '/ranking',
+      component: Ranking,
+      name: '排行榜',
+      meta: {
+        api: {
+          getRanking: Api.getRanking
+        },
+        headerTab: 'ranking'
       }
     },
     {

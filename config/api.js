@@ -27,5 +27,6 @@ export default {
   getGiftOrder: '/user/gift-order',
   getNoticeList: '/user/notice-list',
   getNoticeDetail: '/user/notice-detail',
-  getNoticeAttachment: '/user/get-notice-attachment'
+  getNoticeAttachment: '/user/get-notice-attachment',
+  getRanking: '/user/ranking'
 }

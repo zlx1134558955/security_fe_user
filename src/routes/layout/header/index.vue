@@ -15,6 +15,7 @@
         <el-menu-item index="submit">提交漏洞</el-menu-item>
         <el-menu-item index="gift">礼品兑换</el-menu-item>
         <el-menu-item index="notice">网站公告</el-menu-item>
+        <el-menu-item index="ranking">排行榜</el-menu-item>
       </el-menu>
       <div class="btn-box" v-if="!userInfo.id">
         <el-button round @click="login">登录</el-button>
