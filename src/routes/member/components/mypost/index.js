@@ -1,4 +1,4 @@
-import MAP from '@/utils/map/map.js'
+import MAP from '@/assets/map/map.js'
 import Detail from '../post-detail/index.vue'
 export default {
   data () {

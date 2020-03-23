@@ -3,7 +3,7 @@
     <div class="header-content">
       <div class="company">
         <div class="logo">
-          <img src="Public/images/lixiang.png" alt="lixiang" width="50" height="50">
+          <img :src="url" alt="lixiang" width="50" height="50">
         </div>
         <div class="company-name">
           <h3 class="company-name-cn">{{ $store.state.site.site_name_cn }}安全漏洞管理平台</h3>

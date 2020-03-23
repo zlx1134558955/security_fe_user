@@ -1,5 +1,11 @@
 import ENV from 'Config/env.js'
+const path = require('path')
 export default {
+  data () {
+    return {
+      url: path.resolve(__dirname, './src/assets/images/lixiang.png')
+    }
+  },
   computed: {
     userInfo () {
       return this.$store.state.userInfo

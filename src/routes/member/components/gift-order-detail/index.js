@@ -1,4 +1,4 @@
-import MAP from '@/utils/map/map.js'
+import MAP from '@/assets/map/map.js'
 import ENV from 'Config/env'
 export default {
   data () {

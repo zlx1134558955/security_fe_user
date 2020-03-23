@@ -3,20 +3,20 @@
     <div class="footer-content">
       <div class="contact">
         <div class="item">
-          <img src="Public/svg/email.svg" alt="email" height="20" width="20">
+          <img :src="dir + '/email.svg'" alt="email" height="20" width="20">
           <a :href="'mailto:' + email" class="connect">专用邮箱</a>
         </div>
         <div class="item">
-          <img src="Public/svg/qq.svg" alt="qq" height="20" width="20">
+          <img :src="dir + '/qq.svg'" alt="qq" height="20" width="20">
           <a class="connect"
             :href="'tencent://message/?uin=' + qq +'&Menu=yes& Service=300&sigT=42a1e5347953b64c5ff3980f8a6e644d4b31456cb0b6ac6b27663a3c4dd0f4aa14a543b1716f9d45'">企鹅QQ</a>
         </div>
         <div class="item">
-          <img src="Public/svg/weibo.svg" alt="weibo" height="20" width="20">
+          <img :src="dir + '/weibo.svg'" alt="weibo" height="20" width="20">
           <p @click="toWeibo">新浪微博</p>
         </div>
         <div class="item weixin">
-          <img src="Public/svg/weixin.svg" alt="weixin" height="20" width="20">
+          <img :src="dir + '/weixin.svg'" alt="weixin" height="20" width="20">
           <el-popover placement="top" width="150" trigger="hover">
             <div>
               <img :src="wechat_url" alt="公众号" width="150">

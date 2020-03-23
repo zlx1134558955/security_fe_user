@@ -1,6 +1,6 @@
 .submit-box {
     height: 500px;
-    background-image: url('../../../public/images/homeBG.jpg');
+    background-image: url('../../assets/images/homeBG.jpg');
     position: relative;
     display: flex;
     justify-content: center;
@@ -12,7 +12,7 @@
 .circle-border {
     width: 500px;
     height: 500px;
-    background-image: url('../../../public//images/circle_border.png');
+    background-image: url('../../assets/images/circle_border.png');
     background-size: contain;
     animation: rotate 10s linear infinite;
 }
@@ -32,7 +32,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-image: url('../../../public/images/computer.png');
+    background-image: url('../../assets/images/computer.png');
     background-size: 100%;
     display: flex;
     flex-direction: column;

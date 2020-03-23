@@ -1,4 +1,4 @@
-import Tip from '@/routes/components/tip/index.vue'
+import Tip from '@/components/tip/index.vue'
 import Editor from '@/components/editor/index.vue'
 export default {
   data () {

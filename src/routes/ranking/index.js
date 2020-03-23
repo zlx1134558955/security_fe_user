@@ -1,6 +1,6 @@
-import Tip from '@/routes/components/tip/index.vue'
+import Tip from '@/components/tip/index.vue'
 import ENV from 'Config/env.js'
-import HeadName from '@/routes/components/head_name/index.vue'
+import HeadName from '@/components/head_name/index.vue'
 export default {
   data () {
     return {

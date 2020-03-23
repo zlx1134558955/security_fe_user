@@ -1,4 +1,4 @@
-import Tip from '@/routes/components/tip/index.vue'
+import Tip from '@/components/tip/index.vue'
 import ENV from 'Config/env.js'
 export default {
   data () {
