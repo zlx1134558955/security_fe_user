@@ -1,4 +1,4 @@
-import AddressForm from '@/routes/member/components/person/address-components/address-form/index.vue'
+import AddressForm from '@/routes/member/person/address-form/index.vue'
 export default {
   data () {
     return {

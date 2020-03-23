@@ -1,5 +1,5 @@
 import ENV from 'Config/env.js'
-import AddressForm from './address-components/address-form/index.vue'
+import AddressForm from './address-form/index.vue'
 export default {
   data () {
     return {

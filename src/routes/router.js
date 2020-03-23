@@ -5,15 +5,15 @@ import Api from 'Config/api.js'
 import Home from '@/routes/home/index.vue'
 import Submit from '@/routes/submit/index.vue'
 import Member from '@/routes/member/index.vue'
-import Mypost from '@/routes/member/components/mypost/index.vue'
-import HomePage from '@/routes/member/components/homepage/index.vue'
-import Person from '@/routes/member/components/person/index.vue'
-import Detail from '@/routes/member/components/post-detail/index.vue'
-import Gift from '@/routes/gifts/index.vue'
+import Mypost from '@/routes/member/mypost/post-record/index.vue'
+import HomePage from '@/routes/member/homepage/index.vue'
+import Person from '@/routes/member/person/index.vue'
+import Detail from '@/routes/member/mypost/post-detail/index.vue'
+import Gift from '@/routes/gifts/gift-list/index.vue'
 import GiftDetail from '@/routes/gifts/gift-detail/index.vue'
-import GiftOrder from '@/routes/member/components/gift-order/index.vue'
-import GiftOrderDetail from '@/routes/member/components/gift-order-detail/index.vue'
-import Notice from '@/routes/notice/index.vue'
+import GiftOrder from '@/routes/member/gift/gift-order/index.vue'
+import GiftOrderDetail from '@/routes/member/gift/gift-order-detail/index.vue'
+import NoticeList from '@/routes/notice/notice-list/index.vue'
 import NoticeDetail from '@/routes/notice/notice-detail/index.vue'
 import Ranking from '@/routes/ranking/index.vue'
 
@@ -78,7 +78,7 @@ const router = new VueRouter({
     },
     {
       path: '/notice',
-      component: Notice,
+      component: NoticeList,
       name: '网站公告',
       meta: {
         api: {

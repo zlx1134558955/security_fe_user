@@ -1,7 +1,7 @@
 import Tip from '@/components/tip/index.vue'
-import Person from './components/person/index.vue'
-import Mypost from './components/mypost/index.vue'
-import HomePage from './components/homepage/index.vue'
+import Person from './person/index.vue'
+import Mypost from './mypost/post-record/index.vue'
+import HomePage from './homepage/index.vue'
 export default {
   data () {
     return {
