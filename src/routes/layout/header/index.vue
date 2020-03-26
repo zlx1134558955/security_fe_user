@@ -22,7 +22,7 @@
         <el-button round @click="register">注册</el-button>
       </div>
       <div class="person" v-if="userInfo.id">
-        <div class="avatar"><img :src="avatar_url" alt=""></div>
+        <div class="avatar" :style="avatarStyle"></div>
         <div class="person-info">
           <el-dropdown @command="handleCommand">
             <span class="el-dropdown-link">

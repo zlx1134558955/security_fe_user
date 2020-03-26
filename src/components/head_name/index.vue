@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <div class="avatar" :style="backgroundDiv"></div>
+    <div class="avatar" :style="cssStyle"></div>
     <p class="name">{{ name }}</p>
   </div>
 </template>

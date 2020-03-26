@@ -10,6 +10,8 @@ import './index.scss'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import MD5 from 'js-md5'
+import utils from '@/utils/utils'
+import '@/utils/derective'
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
@@ -22,6 +24,7 @@ axios.defaults.withCredentials = true
 Vue.filter('timeFormat', filter.formatTime)
 
 Vue.prototype.$md5 = MD5
+Vue.prototype.$lengthRule = utils.lengthRule
 
 new Vue({
   data: {

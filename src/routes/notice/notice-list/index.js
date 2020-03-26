@@ -1,5 +1,6 @@
 import Tip from '@/components/tip/index.vue'
 import ENV from 'Config/env.js'
+import HeadName from '@/components/head_name/index.vue'
 export default {
   data () {
     return {
@@ -8,14 +9,15 @@ export default {
       title: '',
       list: [],
       env: ENV,
-      pageSize: 10,
-      pageList: [10, 20, 30, 40],
+      pageSize: 14,
+      // pageList: [10, 20, 30, 40],
       currentPage: 1,
       total: 0
     }
   },
   components: {
-    Tip
+    Tip,
+    HeadName
   },
   computed: {
   },

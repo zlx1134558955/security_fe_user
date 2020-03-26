@@ -11,7 +11,7 @@ export default {
           { required: true, message: '请输入手机号', trigger: 'blur' },
           { pattern: /^1[3456789]\d{9}$/, message: '请输入正确的手机号', trigger: 'blur' }
         ],
-        zip: [
+        zipcode: [
           { required: true, message: '请输入邮编', trigger: 'blur' },
           { pattern: /^[1-9][0-9]{5}$/, message: '请输入正确的邮编', trigger: 'blur' }
         ],

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <Header @register="register" @login="login" @logout="logout"></Header>
     <div class="main">
       <router-view></router-view>
@@ -24,6 +24,27 @@
   .main {
     padding-top: 1px;
     min-height: 800px;
+  }
+
+  .box {
+    height: 100vh;
+    overflow: auto;
+    margin-right: 2px;
+  }
+
+  .box::-webkit-scrollbar {
+    width: 6px;
+    transform: translateX(-10px);
+  }
+
+  .box::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background-color: #ddd;
+    border-radius: 3px;
+  }
+
+  .box::-webkit-scrollbar-thumb:hover {
+    background-color: #bbb;
   }
 </style>
 <script>

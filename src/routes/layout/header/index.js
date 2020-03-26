@@ -3,7 +3,8 @@ const path = require('path')
 export default {
   data () {
     return {
-      url: path.resolve(__dirname, './src/assets/images/lixiang.png')
+      url: path.resolve(__dirname, './src/assets/images/lixiang.png'),
+      avatarStyle: ''
     }
   },
   computed: {
@@ -33,13 +34,21 @@ export default {
       this.$emit('logout')
     },
     toMember () {
-      const target = '/member'
+      const target = '/member/homepage'
       if (this.$route.path === target) return
       this.$router.push('/member/homepage')
     },
     handleCommand (command) {
       if (command === 'logout') this.logout()
       if (command === 'member') this.toMember()
+    }
+  },
+  watch: {
+    avatar_url (val) {
+      this.avatarStyle = {
+        backgroundImage: `url(${this.avatar_url})`,
+        backgroundSize: '100%'
+      }
     }
   }
 }

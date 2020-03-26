@@ -7,7 +7,7 @@
         <h2 class="notice-title">{{ notice.title }}</h2>
         <p class="time">{{ notice.update_time | timeFormat('yyyy-MM-dd hh:mm:ss') }}</p>
         <el-divider></el-divider>
-        <div v-html="notice.content"></div>
+        <div v-html="notice.content" class="notice-content"></div>
         <el-divider></el-divider>
         <p v-if="notice.attachment">附件下载：<p class="attach-name" @click="getAttachment">{{ notice.attachment }}</p>
         </p>

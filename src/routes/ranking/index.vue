@@ -4,12 +4,13 @@
     <div class="main">
       <div class="content">
         <div>
-          <el-table :data="list" style="width: 99%" height="600">
+          <el-table :data="list" style="width: 99%" v-my_table_scroll="{height:660}">
             <el-table-column type="index" width="200" label="排名" align="center">
             </el-table-column>
             <el-table-column prop="username" label="用户" width="300">
               <template slot-scope="user">
-                <HeadName :avatar="env.headerDIR + user.row.avatar" :name="user.row.username"></HeadName>
+                <HeadName :avatar="env.headerDIR + user.row.avatar" :name="user.row.username" :w="30" :h="30">
+                </HeadName>
               </template>
             </el-table-column>
             <el-table-column prop="team" label="团队" width="300">

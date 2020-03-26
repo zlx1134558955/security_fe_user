@@ -104,7 +104,7 @@ export default {
         if (res.data.code === 0) {
           const list = res.data.data
           list.forEach(item => {
-            this.giftCateList[item.id] = item.name
+            this.giftCateList[parseInt(item.id)] = item.name
           })
         }
       })

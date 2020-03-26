@@ -1,11 +1,13 @@
 export default {
   data () {
     return {
-      backgroundDiv: {
+      cssStyle: {
         backgroundImage: `url(${this.avatar})`,
-        backgroundSize: '100%'
+        backgroundSize: '100%',
+        height: `${this.h}px`,
+        width: `${this.w}px`
       }
     }
   },
-  props: ['avatar', 'name']
+  props: ['avatar', 'name', 'h', 'w']
 }

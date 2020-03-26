@@ -28,13 +28,13 @@ export default {
       rules: {
         username: [
           { required: true, message: '请输入昵称', trigger: 'blur' },
-          { min: 1, max: 20, message: '不能大于20个字符', trigger: 'blur' }
+          { validator: (rule, value, cb) => this.$lengthRule(rule, value, cb, 6), trigger: 'blur' }
         ],
         realname: [
-          { min: 1, max: 20, message: '不能大于20个字符', trigger: 'blur' }
+          { validator: (rule, value, cb) => this.$lengthRule(rule, value, cb, 6), trigger: 'blur' }
         ],
         team: [
-          { min: 1, max: 20, message: '不能大于20个字符', trigger: 'blur' }
+          { validator: (rule, value, cb) => this.$lengthRule(rule, value, cb, 10), trigger: 'blur' }
         ],
         email: [
           { pattern: /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/, message: '请输入正确的邮箱', trigger: 'blur' }
@@ -49,10 +49,10 @@ export default {
           { pattern: /^[1-9A-Za-z][0-9A-Za-z]{1,24}$/, message: '请输入正确的微信号', trigger: 'blur' }
         ],
         description: [
-          { min: 1, max: 50, message: '不能大于50个字符', trigger: 'blur' }
+          { validator: (rule, value, cb) => this.$lengthRule(rule, value, cb, 50), trigger: 'blur' }
         ],
         website: [
-          { min: 1, max: 50, message: '不能大于50个字符', trigger: 'blur' }
+          { validator: (rule, value, cb) => this.$lengthRule(rule, value, cb, 50), trigger: 'blur' }
         ]
       }
     }

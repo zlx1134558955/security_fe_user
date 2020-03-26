@@ -16,6 +16,7 @@ import GiftOrderDetail from '@/routes/member/gift/gift-order-detail/index.vue'
 import NoticeList from '@/routes/notice/notice-list/index.vue'
 import NoticeDetail from '@/routes/notice/notice-detail/index.vue'
 import Ranking from '@/routes/ranking/index.vue'
+import Account from '@/routes/member/account/index.vue'
 
 Vue.use(VueRouter)
 
@@ -199,6 +200,20 @@ const router = new VueRouter({
               getAttachment: Api.getAttachment
             },
             tab: 'mypost'
+          }
+        },
+        {
+          path: '/member/account',
+          component: Account,
+          name: '安全账户',
+          meta: {
+            api: {
+              getPointsRecord: Api.getPointsRecord,
+              getScoreRecord: Api.getScoreRecord,
+              getUserInfo: Api.getUserInfo,
+              getMember: Api.getMember
+            },
+            tab: 'account'
           }
         }
       ]

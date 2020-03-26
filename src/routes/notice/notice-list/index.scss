@@ -26,6 +26,13 @@
 .look:hover {
   cursor: pointer;
 }
-/deep/ .el-table__row {
-  height: 80px;
+.notice-title-box:hover {
+  cursor: pointer;
+  color: #409EFF;
+}
+/deep/ .el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+.notice-title-box {
+  padding-left: 20px;
 }

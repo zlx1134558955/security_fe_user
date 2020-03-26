@@ -10,7 +10,8 @@ export default {
         score: 0,
         team: '',
         description: ''
-      }
+      },
+      style: ''
     }
   },
   created () {
@@ -53,6 +54,14 @@ export default {
           })
         }
       })
+    }
+  },
+  watch: {
+    avatar_url (val) {
+      this.style = {
+        backgroundImage: `url(${this.avatar_url})`,
+        backgroundSize: '100%'
+      }
     }
   }
 }

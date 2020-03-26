@@ -28,5 +28,7 @@ export default {
   getNoticeList: '/user/notice-list',
   getNoticeDetail: '/user/notice-detail',
   getNoticeAttachment: '/user/get-notice-attachment',
-  getRanking: '/user/ranking'
+  getRanking: '/user/ranking',
+  getPointsRecord: '/user/points-record',
+  getScoreRecord: '/user/score-record'
 }

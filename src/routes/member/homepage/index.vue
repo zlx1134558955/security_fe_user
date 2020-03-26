@@ -1,8 +1,7 @@
 <template>
   <div class="content">
     <div class="userinfo-box">
-      <div class="avatar-box">
-        <img :src="avatar_url" heigth="100" width="100" alt="头像">
+      <div class="avatar-box" :style="style">
       </div>
       <div class="userInfo-detail">
         <h2>{{ userInfo.username }}</h2>
