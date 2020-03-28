@@ -87,7 +87,7 @@
         this.$store.commit('changeLogin', false)
       },
       getSite() {
-        this.axios.get(Api.getSite).then(res => {
+        this.axios.get(Api.site).then(res => {
           if (res.data.code === 0) {
             this.$store.dispatch('getSite', res.data.data)
           }

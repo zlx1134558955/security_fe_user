@@ -40,9 +40,37 @@ export default {
     upload (params) {
       this.form.attach = params.file
     },
+    handleCategoryTree (result) {
+      const list = []
+      for (const bug of result) {
+        if (bug.pid === 0) {
+          list.push(bug)
+        }
+      }
+      const arr = []
+      list.forEach(item => {
+        const obj = {
+          value: item.id,
+          label: item.name,
+          children: []
+        }
+        arr.push(obj)
+        for (const newItem of result) {
+          if (newItem.pid === item.id) {
+            const bug = {
+              value: newItem.id,
+              label: newItem.name
+            }
+            obj.children.push(bug)
+          }
+        }
+      })
+      this.category = arr
+    },
     getCategory () {
-      this.axios.get(this.$route.meta.api.getCategory).then(res => {
-        this.category = res.data.data
+      this.axios.get(this.$route.meta.api.category).then(res => {
+        const result = res.data.data
+        this.handleCategoryTree(result)
       })
     },
     submit () {

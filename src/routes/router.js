@@ -40,7 +40,7 @@ const router = new VueRouter({
       name: '提交漏洞',
       meta: {
         api: {
-          getCategory: Api.getCategory,
+          category: Api.category,
           insertImg: Api.insertImg,
           submitPost: Api.submitPost
         },
@@ -53,7 +53,7 @@ const router = new VueRouter({
       name: '礼物兑换',
       meta: {
         api: {
-          getGiftCate: Api.getGiftCate,
+          giftCategory: Api.giftCategory,
           getGiftList: Api.getGiftList,
           getMember: Api.getMember
         },
@@ -69,7 +69,7 @@ const router = new VueRouter({
           getGiftDetail: Api.getGiftDetail,
           getMember: Api.getMember,
           exchangeGift: Api.exchangeGift,
-          getGiftCate: Api.getGiftCate,
+          giftCategory: Api.giftCategory,
           addAddress: Api.addAddress,
           editAddress: Api.editAddress,
           getAddressList: Api.getAddressList
@@ -195,7 +195,7 @@ const router = new VueRouter({
             api: {
               getUserInfo: Api.getUserInfo,
               getPostDetail: Api.getPostDetail,
-              getCategoryMap: Api.getCategoryMap,
+              category: Api.category,
               getPostState: Api.getPostState,
               getAttachment: Api.getAttachment
             },
@@ -208,8 +208,8 @@ const router = new VueRouter({
           name: '安全账户',
           meta: {
             api: {
-              getPointsRecord: Api.getPointsRecord,
-              getScoreRecord: Api.getScoreRecord,
+              pointsRecord: Api.pointsRecord,
+              scoreRecord: Api.scoreRecord,
               getUserInfo: Api.getUserInfo,
               getMember: Api.getMember
             },

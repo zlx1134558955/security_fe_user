@@ -37,7 +37,7 @@ export default {
   },
   created () {
     this.getPostDetail()
-    this.getCategoryMap()
+    this.getCategory()
     this.getPostState()
   },
   methods: {
@@ -102,8 +102,8 @@ export default {
         })
       }
     },
-    getCategoryMap () {
-      const url = this.$route.meta.api.getCategoryMap
+    getCategory () {
+      const url = this.$route.meta.api.category
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.categoryMap = res.data.data

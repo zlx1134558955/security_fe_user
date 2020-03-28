@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     getGiftCate () {
-      const url = this.$route.meta.api.getGiftCate
+      const url = this.$route.meta.api.giftCategory
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.giftCateList = res.data.data

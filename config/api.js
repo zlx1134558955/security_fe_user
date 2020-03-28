@@ -1,7 +1,6 @@
 export default {
-  getSite: '/site',
-  getCategory: '/category',
-  getCategoryMap: 'category-map',
+  site: '/setting',
+  category: '/category',
   register: '/user/register',
   login: '/user/login',
   getUserInfo: '/user/info',
@@ -19,7 +18,7 @@ export default {
   getPostDetail: '/user/post-detail',
   getPostState: '/user/post-state',
   getAttachment: '/user/get-attachment',
-  getGiftCate: '/giftcate',
+  giftCategory: '/gift_category',
   getGiftList: '/user/gift-list',
   getGiftDetail: '/user/gift-detail',
   exchangeGift: '/user/exchange-gift',
@@ -29,6 +28,6 @@ export default {
   getNoticeDetail: '/user/notice-detail',
   getNoticeAttachment: '/user/get-notice-attachment',
   getRanking: '/user/ranking',
-  getPointsRecord: '/user/points-record',
-  getScoreRecord: '/user/score-record'
+  pointsRecord: '/points_record',
+  scoreRecord: '/score_record'
 }

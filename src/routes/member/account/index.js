@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     getPointsRecord () {
-      const url = this.$route.meta.api.getPointsRecord
+      const url = this.$route.meta.api.pointsRecord
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.points_list = res.data.data
@@ -25,7 +25,7 @@ export default {
       })
     },
     getScoreRecord () {
-      const url = this.$route.meta.api.getScoreRecord
+      const url = this.$route.meta.api.scoreRecord
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.score_list = res.data.data
