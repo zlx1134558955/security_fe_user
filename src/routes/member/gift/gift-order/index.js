@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     getOrderList () {
-      const url = this.$route.meta.api.getOrderList
+      const url = this.$route.meta.api.giftOrderList
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.list = res.data.data

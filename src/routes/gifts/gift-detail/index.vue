@@ -15,7 +15,7 @@
                 <div @click="openSelect">
                   <el-card class="box-card address-item" shadow="hover">
                     <p>{{ defaultAddress.realname }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ defaultAddress.mobile }}</p>
-                    <p>{{ defaultAddress.adetail }}</p>
+                    <p>{{ defaultAddress.detail }}</p>
                   </el-card>
                 </div>
               </div>

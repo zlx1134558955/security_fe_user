@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     getRanking () {
-      const url = this.$route.meta.api.getRanking
+      const url = this.$route.meta.api.memberRanking
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.list = res.data.data

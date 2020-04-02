@@ -23,12 +23,12 @@ export default {
     },
     getAddressList () {
       this.defaultId = 0
-      const url = this.$route.meta.api.getAddressList
+      const url = this.$route.meta.api.address
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.addressList = res.data.data
           this.addressList.forEach(item => {
-            if (parseInt(item.adefault) === 1) {
+            if (parseInt(item.default) === 1) {
               this.defaultId = item.id
               this.$emit('setDefaultAddress', item)
             }
@@ -44,8 +44,8 @@ export default {
       this.address = item || {
         realname: '',
         mobile: '',
-        adetail: '',
-        adefault: 1,
+        detail: '',
+        default: 1,
         zipcode: ''
       }
       this.showAddressForm = true

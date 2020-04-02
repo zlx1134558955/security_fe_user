@@ -3,14 +3,14 @@
     <el-button type="primary" size="mini" @click="back" class="back">返回</el-button>
     <div class="top-box">
       <div>
-        <img :src="detail.image" alt="礼品图片" class="gift-image">
+        <img :src="detail.gift.image" alt="礼品图片" class="gift-image">
       </div>
       <div class="right-box">
-        <h2>{{ detail.title }}</h2>
+        <h2>{{ detail.gift.title }}</h2>
         <div>
           <el-collapse accordion>
             <el-collapse-item title="展示礼品详情">
-              <pre>{{ detail.detail }}</pre>
+              <pre>{{ detail.gift.detail }}</pre>
             </el-collapse-item>
           </el-collapse>
           <p>礼品兑换数量：{{ detail.num }}</p>
@@ -20,18 +20,17 @@
         </div>
       </div>
     </div>
-    <el-divider v-if="detail.type === 1"></el-divider>
-    <div v-if="detail.type === 1">
+    <el-divider></el-divider>
+    <div>
       <p class="little-title">收货地址</p>
-      <p>收货人：{{ detail.realname }}</p>
-      <p>手机号码：{{ detail.mobile }}</p>
-      <p>邮编：{{ detail.zipcode }}</p>
-      <p>详细地址：{{ detail.adetail }}</p>
+      <p>收货人：{{ detail.name }}</p>
+      <p>手机号码：{{ detail.tel }}</p>
+      <p>详细地址：{{ detail.address }}</p>
     </div>
     <el-divider></el-divider>
     <div>
       <p class="little-title">订单信息</p>
-      <p>快递公司：{{ detail.company }}</p>
+      <p>快递公司：{{ map.tracking[detail.company] }}</p>
       <p>快递单号：{{ detail.tracking_number }}</p>
       <div class="order-info">订单说明：
         <pre>{{ detail.content }}</pre>

@@ -6,7 +6,7 @@ export default {
       title: '礼品兑换',
       desc: '安全点兑好礼~',
       giftCateList: [],
-      activeCate: '0',
+      activeCate: '-1',
       giftList: [],
       env: ENV,
       points: 0
@@ -31,18 +31,20 @@ export default {
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.giftCateList = res.data.data
-          this.giftCateList.unshift({ id: 0, name: '全部' })
+          this.giftCateList.unshift({ id: -1, name: '全部' })
         }
       })
     },
     getGiftList () {
       const form = {
-        id: parseInt(this.activeCate)
+        gift_category_id: parseInt(this.activeCate),
+        visible: 1,
+        title: ''
       }
-      const url = this.$route.meta.api.getGiftList
-      this.axios.post(url, form).then(res => {
+      const url = this.$route.meta.api.giftList
+      this.axios.put(url, form).then(res => {
         if (res.data.code === 0) {
-          this.giftList = res.data.data
+          this.giftList = res.data.data.rows
         }
       })
     },
@@ -50,7 +52,7 @@ export default {
       this.$router.push(`/gift-detail?id=${id}`)
     },
     getMember () {
-      const url = this.$route.meta.api.getMember
+      const url = this.$route.meta.api.memberInfo
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.points = res.data.data.points

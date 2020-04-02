@@ -24,7 +24,7 @@ export default {
         realname: '',
         zipcode: '',
         mobile: '',
-        adetail: '',
+        detail: '',
         id: 0
       }
     }
@@ -46,11 +46,8 @@ export default {
   },
   methods: {
     getGiftDetail () {
-      const url = this.$route.meta.api.getGiftDetail
-      const form = {
-        id: this.id
-      }
-      this.axios.post(url, form).then(res => {
+      const url = this.$route.meta.api.gift + `/${this.id}`
+      this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.gift = res.data.data
           this.gift.image = `${this.env.giftDIR}${this.gift.image}`
@@ -58,7 +55,7 @@ export default {
       })
     },
     getMember () {
-      const url = this.$route.meta.api.getMember
+      const url = this.$route.meta.api.memberInfo
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.points = res.data.data.points
@@ -77,11 +74,13 @@ export default {
         this.$store.commit('changeLogin', true)
         return
       }
-      const url = this.$route.meta.api.exchangeGift
+      const url = this.$route.meta.api.giftOrder
       const form = {
         num: this.num,
         gift_id: parseInt(this.id),
-        address: this.defaultAddress.id
+        address: this.defaultAddress.detail,
+        tel: this.defaultAddress.mobile,
+        name: this.defaultAddress.realname
       }
       this.axios.post(url, form).then(res => {
         if (res.data.code === 0) {

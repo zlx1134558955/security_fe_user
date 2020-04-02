@@ -41,8 +41,8 @@ const router = new VueRouter({
       meta: {
         api: {
           category: Api.category,
-          insertImg: Api.insertImg,
-          submitPost: Api.submitPost
+          postInsert: Api.postInsert,
+          post: Api.post
         },
         headerTab: 'submit'
       }
@@ -54,8 +54,8 @@ const router = new VueRouter({
       meta: {
         api: {
           giftCategory: Api.giftCategory,
-          getGiftList: Api.getGiftList,
-          getMember: Api.getMember
+          giftList: Api.giftList,
+          memberInfo: Api.memberInfo
         },
         headerTab: 'gift'
       }
@@ -66,13 +66,11 @@ const router = new VueRouter({
       name: '礼品详情',
       meta: {
         api: {
-          getGiftDetail: Api.getGiftDetail,
-          getMember: Api.getMember,
-          exchangeGift: Api.exchangeGift,
+          gift: Api.gift,
+          memberInfo: Api.memberInfo,
+          giftOrder: Api.giftOrder,
           giftCategory: Api.giftCategory,
-          addAddress: Api.addAddress,
-          editAddress: Api.editAddress,
-          getAddressList: Api.getAddressList
+          address: Api.address
         },
         headerTab: 'gift'
       }
@@ -83,7 +81,7 @@ const router = new VueRouter({
       name: '网站公告',
       meta: {
         api: {
-          getNoticeList: Api.getNoticeList
+          noticeList: Api.noticeList
         },
         headerTab: 'notice'
       }
@@ -94,8 +92,8 @@ const router = new VueRouter({
       name: '公告详情',
       meta: {
         api: {
-          getNoticeDetail: Api.getNoticeDetail,
-          getNoticeAttachment: Api.getNoticeAttachment
+          notice: Api.notice,
+          noticeAttachment: Api.noticeAttachment
         },
         headerTab: 'notice'
       }
@@ -106,7 +104,7 @@ const router = new VueRouter({
       name: '排行榜',
       meta: {
         api: {
-          getRanking: Api.getRanking
+          memberRanking: Api.memberRanking
         },
         headerTab: 'ranking'
       }
@@ -117,7 +115,7 @@ const router = new VueRouter({
       name: '个人中心',
       meta: {
         api: {
-          getUserInfo: Api.getUserInfo
+          member: Api.member
         }
       },
       children: [
@@ -127,8 +125,8 @@ const router = new VueRouter({
           name: '个人主页',
           meta: {
             api: {
-              getMember: Api.getMember,
-              getUserInfo: Api.getUserInfo
+              memberInfo: Api.memberInfo,
+              member: Api.member
             },
             tab: 'homepage'
           }
@@ -139,8 +137,8 @@ const router = new VueRouter({
           name: '我提交的',
           meta: {
             api: {
-              getUserInfo: Api.getUserInfo,
-              getPostList: Api.getPostList
+              member: Api.member,
+              postlist: Api.postlist
             },
             tab: 'mypost'
           }
@@ -151,8 +149,8 @@ const router = new VueRouter({
           name: '礼品订单',
           meta: {
             api: {
-              getUserInfo: Api.getUserInfo,
-              getOrderList: Api.getOrderList
+              member: Api.member,
+              giftOrderList: Api.giftOrderList
             },
             tab: 'gift-order'
           }
@@ -163,8 +161,9 @@ const router = new VueRouter({
           name: '礼品订单详情',
           meta: {
             api: {
-              getGiftOrder: Api.getGiftOrder,
-              getUserInfo: Api.getUserInfo
+              giftOrder: Api.giftOrder,
+              member: Api.member,
+              tracking: Api.tracking
             },
             tab: 'gift-order'
           }
@@ -175,14 +174,9 @@ const router = new VueRouter({
           name: '个人信息',
           meta: {
             api: {
-              getMember: Api.getMember,
-              updateMember: Api.updateMember,
-              setAvatar: Api.setAvatar,
-              getUserInfo: Api.getUserInfo,
-              addAddress: Api.addAddress,
-              editAddress: Api.editAddress,
-              deleteAddress: Api.deleteAddress,
-              getAddressList: Api.getAddressList
+              memberInfo: Api.memberInfo,
+              member: Api.member,
+              address: Api.address
             },
             tab: 'person'
           }
@@ -193,11 +187,11 @@ const router = new VueRouter({
           name: '漏洞详情',
           meta: {
             api: {
-              getUserInfo: Api.getUserInfo,
-              getPostDetail: Api.getPostDetail,
+              member: Api.member,
+              post: Api.post,
               category: Api.category,
-              getPostState: Api.getPostState,
-              getAttachment: Api.getAttachment
+              postState: Api.postState,
+              postAttachment: Api.postAttachment
             },
             tab: 'mypost'
           }
@@ -210,8 +204,8 @@ const router = new VueRouter({
             api: {
               pointsRecord: Api.pointsRecord,
               scoreRecord: Api.scoreRecord,
-              getUserInfo: Api.getUserInfo,
-              getMember: Api.getMember
+              member: Api.member,
+              memberInfo: Api.memberInfo
             },
             tab: 'account'
           }

@@ -10,12 +10,12 @@
       <el-form-item label="邮编" prop="zipcode">
         <el-input v-model="addressForm.zipcode" placeholder="请输入邮编"></el-input>
       </el-form-item>
-      <el-form-item label="详细地址" prop="adetail">
-        <el-input v-model="addressForm.adetail" placeholder="请输入地址"></el-input>
+      <el-form-item label="详细地址" prop="detail">
+        <el-input v-model="addressForm.detail" placeholder="请输入地址"></el-input>
       </el-form-item>
-      <el-form-item label="是否设为默认地址" prop="adefault">
-        <el-radio v-model="addressForm.adefault" :label="1">是</el-radio>
-        <el-radio v-model="addressForm.adefault" :label="0">否</el-radio>
+      <el-form-item label="是否设为默认地址" prop="default">
+        <el-radio v-model="addressForm.default" :label="1">是</el-radio>
+        <el-radio v-model="addressForm.default" :label="0">否</el-radio>
       </el-form-item>
     </el-form>
     <p class="err">{{ err }}</p>

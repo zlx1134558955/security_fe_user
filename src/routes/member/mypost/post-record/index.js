@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     getPostList () {
-      const url = this.$route.meta.api.getPostList
+      const url = this.$route.meta.api.postlist
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.list = res.data.data

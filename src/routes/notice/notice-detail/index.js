@@ -22,11 +22,8 @@ export default {
   },
   methods: {
     getNoticeDetail () {
-      const url = this.$route.meta.api.getNoticeDetail
-      const form = {
-        id: this.id
-      }
-      this.axios.post(url, form).then(res => {
+      const url = this.$route.meta.api.notice + `/${this.id}`
+      this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.notice = res.data.data
         }
@@ -36,8 +33,8 @@ export default {
       const form = {
         filename: this.notice.attachment
       }
-      const url = this.$route.meta.api.getNoticeAttachment
-      this.axios.post(url, form, { responseType: 'blob' }).then((res) => {
+      const url = this.$route.meta.api.noticeAttachment
+      this.axios.put(url, form, { responseType: 'blob' }).then((res) => {
         // 下载返回文件
         const type = 'application/octet-stream'
         const blob = new Blob([res.data], { type: type })

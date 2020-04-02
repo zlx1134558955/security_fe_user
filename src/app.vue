@@ -94,14 +94,14 @@
         })
       },
       getUserInfo() {
-        this.axios.get(Api.getUserInfo).then(res => {
+        this.axios.get(Api.member).then(res => {
           if (res.data.code === 0) {
             this.$store.dispatch('getUserInfo', res.data.data)
           }
         })
       },
       logout() {
-        this.axios.get(Api.logout).then(res => {
+        this.axios.get(Api.logoutMember).then(res => {
           if (res.data.code === 0) {
             this.$store.dispatch('getUserInfo', null)
             this.$message('已退出登录')

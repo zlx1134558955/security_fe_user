@@ -15,11 +15,11 @@ export default {
           { required: true, message: '请输入邮编', trigger: 'blur' },
           { pattern: /^[1-9][0-9]{5}$/, message: '请输入正确的邮编', trigger: 'blur' }
         ],
-        adetail: [
+        detail: [
           { required: true, message: '请输入详细地址', trigger: 'blur' },
           { min: 1, max: 50, message: '详细地址不能大于50个字符', trigger: 'blur' }
         ],
-        adefault: [
+        default: [
           { required: true, trigger: 'change' }
         ]
       }
@@ -28,12 +28,12 @@ export default {
   props: ['showAdd', 'userid', 'address'],
   computed: {
     addressForm () {
-      if (this.address) this.address.adefault = parseInt(this.address.adefault)
+      if (this.address) this.address.default = parseInt(this.address.default)
       return this.address ? this.address : {
         realname: '',
         mobile: '',
-        adetail: '',
-        adefault: 1,
+        detail: '',
+        default: 1,
         zipcode: ''
       }
     },
@@ -54,11 +54,11 @@ export default {
         const form = {
           realname: this.addressForm.realname,
           mobile: this.addressForm.mobile,
-          adetail: this.addressForm.adetail,
-          adefault: this.addressForm.adefault,
+          detail: this.addressForm.adetdetailail,
+          default: this.addressForm.default,
           zipcode: this.addressForm.zipcode
         }
-        this.axios.post(this.$route.meta.api.addAddress, form).then(res => {
+        this.axios.post(this.$route.meta.api.address, form).then(res => {
           if (res.data.code === 0) {
             this.$message({
               message: '新增地址成功',
@@ -82,14 +82,14 @@ export default {
           return
         }
         const form = {
-          id: parseInt(this.addressForm.id),
           realname: this.addressForm.realname,
           mobile: this.addressForm.mobile,
-          adetail: this.addressForm.adetail,
-          adefault: this.addressForm.adefault,
+          detail: this.addressForm.detail,
+          default: this.addressForm.default,
           zipcode: this.addressForm.zipcode
         }
-        this.axios.post(this.$route.meta.api.editAddress, form).then(res => {
+        const url = this.$route.meta.api.address + `/${parseInt(this.addressForm.id)}`
+        this.axios.put(url, form).then(res => {
           if (res.data.code === 0) {
             this.$message({
               message: '编辑地址成功',

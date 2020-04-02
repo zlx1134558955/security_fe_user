@@ -18,7 +18,7 @@
           </el-table-column>
           <el-table-column prop="title" label="礼品名称">
             <template slot-scope="scoped">
-              <span class="post-title" @click="jumpDetail(scoped.row.id)">{{ scoped.row.title }}</span>
+              <span class="post-title" @click="jumpDetail(scoped.row.id)">{{ scoped.row.gift.title }}</span>
             </template>
           </el-table-column>
           <el-table-column prop="num" label="数量" width="100">

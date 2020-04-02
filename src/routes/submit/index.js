@@ -87,14 +87,13 @@ export default {
         if (file) {
           form.append('file', file, file.name) // 将文件添加到formdata中
         }
-        form.append('chunk', '0')
         form.append('title', this.form.name)
         form.append('content', this.form.content)
         form.append('cate_id', this.form.type[1])
         const config = {
           headers: { 'Content-Type': 'multipart/form-data' }
         }
-        this.axios.post(this.$route.meta.api.submitPost, form, config) // 传输数据
+        this.axios.post(this.$route.meta.api.post, form, config) // 传输数据
           .then(res => {
             if (res.data.code === 0) {
               this.$router.push('/member/mypost')

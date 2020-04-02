@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     getUserInfo () {
-      const url = this.$route.meta.api.getUserInfo
+      const url = this.$route.meta.api.member
       this.axios.get(url).then(res => {
         if (res.data.data) {
           this.userInfo = res.data.data

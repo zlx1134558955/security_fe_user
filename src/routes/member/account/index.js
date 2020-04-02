@@ -33,7 +33,7 @@ export default {
       })
     },
     setAccount () {
-      const url = this.$route.meta.api.getMember
+      const url = this.$route.meta.api.memberInfo
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.points = res.data.data.points

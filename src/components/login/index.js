@@ -46,7 +46,7 @@ export default {
         }
         this.fullscreenLoading = true
         // 发送登录请求
-        this.axios.post(Api.login, form)
+        this.axios.put(Api.loginMember, form)
           .then(res => {
             if (res.data.code === 0) {
               this.$emit('close')

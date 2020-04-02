@@ -14,8 +14,14 @@ export default {
         tracking_number: '',
         end_time: '',
         create_time: '',
-        title: '',
-        image: '',
+        gift: {
+          title: '',
+          image: '',
+          detail: ''
+        },
+        member: {
+          account: ''
+        },
         realname: '',
         zipcode: '',
         adetail: '',
@@ -38,6 +44,7 @@ export default {
   },
   created () {
     this.getGiftOrder()
+    this.makeOrderTrace()
   },
   methods: {
     formatTime (value, fmt) {
@@ -60,14 +67,11 @@ export default {
       return fmt
     },
     getGiftOrder () {
-      const url = this.$route.meta.api.getGiftOrder
-      const form = {
-        id: parseInt(this.id)
-      }
-      this.axios.post(url, form).then(res => {
+      const url = this.$route.meta.api.giftOrder + `/${parseInt(this.id)}`
+      this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.detail = res.data.data
-          this.detail.image = this.env.giftDIR + res.data.data.image
+          this.detail.gift.image = this.env.giftDIR + res.data.data.gift.image
           this.steps[0].timestamp = this.formatTime(res.data.data.create_time, 'yyyy-MM-dd hh:mm:ss')
           if (res.data.data.end_time && res.data.data.status === 2) {
             this.steps[1].timestamp = this.formatTime(res.data.data.end_time, 'yyyy-MM-dd hh:mm:ss')

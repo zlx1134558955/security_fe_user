@@ -68,18 +68,17 @@ export default {
       const file = params.file // 获取文件对象
       const form = new FormData()
       form.append('file', file, file.name) // 将文件添加到formdata中
-      form.append('chunk', '0')
       const config = {
         headers: { 'Content-Type': 'multipart/form-data' }
       }
-      this.axios.post(this.$route.meta.api.insertImg, form, config) // 传输数据
+      const url = this.$route.meta.api.postInsert
+      this.axios.post(url, form, config) // 传输数据
         .then(res => {
           if (res.data.code === 0) {
-            const src = `${ENV.insertDIR}${res.data.data}`
+            const src = `${ENV.postInsertDIR}${res.data.data}`
             const length = quill.getSelection().index // 获取光标所在位置
             quill.insertEmbed(length, 'image', src) // 插入图片
             quill.setSelection(length + 1) // 调整光标到最后
-            // this.userInfo.avatar = res.data.data
           } else {
             this.$message({
               message: res.data.message,

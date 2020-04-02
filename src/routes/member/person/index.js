@@ -10,7 +10,7 @@ export default {
         realname: '',
         team: '',
         email: '',
-        qqnumber: '',
+        qq: '',
         tel: '',
         website: '',
         description: '',
@@ -39,7 +39,7 @@ export default {
         email: [
           { pattern: /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/, message: '请输入正确的邮箱', trigger: 'blur' }
         ],
-        qqnumber: [
+        qq: [
           { pattern: /^[1-9][0-9]{4,10}$/, message: '请输入正确的qq号', trigger: 'blur' }
         ],
         tel: [
@@ -54,23 +54,23 @@ export default {
         website: [
           { validator: (rule, value, cb) => this.$lengthRule(rule, value, cb, 50), trigger: 'blur' }
         ]
-      }
+      },
+      avatar_url: '',
+      image: null
     }
   },
   computed: {
-    avatar_url () {
-      return `${ENV.headerDIR}${this.userInfo.avatar}`
-    }
   },
   components: {
     AddressForm
   },
   methods: {
     getMember () {
-      const url = this.$route.meta.api.getMember
+      const url = this.$route.meta.api.memberInfo
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.userInfo = res.data.data
+          this.avatar_url = `${ENV.headerDIR}${this.userInfo.avatar}`
         } else {
           this.$message({
             message: res.data.message,
@@ -87,55 +87,45 @@ export default {
         if (!valid) {
           return
         }
-        const form = {
-          username: this.userInfo.username,
-          realname: this.userInfo.realname,
-          avatar: this.userInfo.avatar,
-          team: this.userInfo.team,
-          email: this.userInfo.email,
-          qqnumber: this.userInfo.qqnumber,
-          wechat: this.userInfo.wechat,
-          website: this.userInfo.website,
-          tel: this.userInfo.tel,
-          description: this.userInfo.description
+        const file = this.image // 获取文件对象
+        const form = new FormData()
+        if (file) {
+          form.append('file', file, file.name) // 将文件添加到formdata中
         }
-        const url = this.$route.meta.api.updateMember
-        this.axios.post(url, form).then(res => {
-          if (res.data.code === 0) {
-            this.$message({
-              message: '用户信息保存成功',
-              type: 'success'
-            })
-            this.$store.commit('getUserInfo', res.data.data)
-            this.show = true
-          } else {
-            this.$message({
-              message: res.data.message,
-              type: 'warning'
-            })
-          }
-        })
+        form.append('username', this.userInfo.username)
+        form.append('realname', this.userInfo.realname)
+        form.append('team', this.userInfo.team)
+        form.append('email', this.userInfo.email)
+        form.append('qq', this.userInfo.qq)
+        form.append('wechat', this.userInfo.wechat)
+        form.append('website', this.userInfo.website)
+        form.append('tel', this.userInfo.tel)
+        form.append('description', this.userInfo.description)
+        const config = {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        }
+        this.axios.put(this.$route.meta.api.memberInfo, form, config) // 传输数据
+          .then(res => {
+            if (res.data.code === 0) {
+              this.$message({
+                message: '用户信息保存成功',
+                type: 'success'
+              })
+              this.$store.commit('getUserInfo', res.data.data)
+              this.show = true
+            } else {
+              this.$message({
+                message: res.data.message,
+                type: 'warning'
+              })
+            }
+          })
       })
     },
     setAvatar (params) {
-      const file = params.file // 获取文件对象
-      const form = new FormData()
-      form.append('file', file, file.name) // 将文件添加到formdata中
-      form.append('chunk', '0')
-      const config = {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      }
-      this.axios.post(this.$route.meta.api.setAvatar, form, config) // 传输数据
-        .then(res => {
-          if (res.data.code === 0) {
-            this.userInfo.avatar = res.data.data
-          } else {
-            this.$message({
-              message: res.data.message,
-              type: 'warning'
-            })
-          }
-        })
+      this.image = params.file
+      const url = window.URL.createObjectURL(this.image)
+      this.avatar_url = url
     },
     closeAddressForm () {
       this.showAddressForm = false
@@ -145,12 +135,12 @@ export default {
     },
     getAddressList () {
       this.defaultId = 0
-      const url = this.$route.meta.api.getAddressList
+      const url = this.$route.meta.api.address
       this.axios.get(url).then(res => {
         if (res.data.code === 0) {
           this.addressList = res.data.data
           this.addressList.forEach(item => {
-            if (parseInt(item.adefault) === 1) {
+            if (parseInt(item.default) === 1) {
               this.defaultId = item.id
             }
           })
@@ -161,8 +151,8 @@ export default {
       this.address = item || {
         realname: '',
         mobile: '',
-        adetail: '',
-        adefault: 1,
+        detail: '',
+        default: 1,
         zipcode: ''
       }
       this.showAddressForm = true
@@ -172,9 +162,8 @@ export default {
       this.deleteId = id
     },
     deleteAddress () {
-      const url = this.$route.meta.api.deleteAddress
-      const id = parseInt(this.deleteId)
-      this.axios.post(url, { id: id }).then(res => {
+      const url = this.$route.meta.api.address + `/${parseInt(this.deleteId)}`
+      this.axios.delete(url).then(res => {
         if (res.data.code === 0) {
           this.$message({
             message: '删除地址成功',

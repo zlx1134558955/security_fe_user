@@ -16,7 +16,7 @@
                     <p>手机号：{{ item.mobile }}</p>
                   </div>
                   <p>邮编：{{ item.zipcode }}</p>
-                  <p class="adetail">详细地址：{{ item.adetail }}</p>
+                  <p class="detail">详细地址：{{ item.detail }}</p>
                 </div>
               </el-card>
             </li>

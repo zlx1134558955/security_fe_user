@@ -16,7 +16,7 @@
             <li>真实姓名: {{ userInfo.realname }}</li>
             <li>团队：{{ userInfo.team }}</li>
             <li>邮箱：{{ userInfo.email }}</li>
-            <li>QQ号：{{ userInfo.qqnumber }}</li>
+            <li>QQ号：{{ userInfo.qq }}</li>
             <li>微信：{{ userInfo.wechat }}</li>
             <li>移动电话：{{ userInfo.tel }}</li>
             <li>个人网站：{{ userInfo.website }}</li>
@@ -42,7 +42,7 @@
                 <p>手机号：{{ item.mobile }}</p>
               </div>
               <p>邮编：{{ item.zipcode }}</p>
-              <p class="adetail">详细地址：{{ item.adetail }}</p>
+              <p class="detail">详细地址：{{ item.detail }}</p>
             </el-card>
           </li>
           <li @click="editAddress()">
@@ -80,8 +80,8 @@
         <el-form-item label="邮箱" prop="email">
           <el-input v-model="userInfo.email"></el-input>
         </el-form-item>
-        <el-form-item label="QQ号" prop="qqnumber">
-          <el-input v-model="userInfo.qqnumber"></el-input>
+        <el-form-item label="QQ号" prop="qq">
+          <el-input v-model="userInfo.qq"></el-input>
         </el-form-item>
         <el-form-item label="微信" prop="wechat">
           <el-input v-model="userInfo.wechat"></el-input>
