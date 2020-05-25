@@ -18,12 +18,6 @@ const store = new Vuex.Store({
       id: '',
       avatar: ''
     },
-    adminInfo: {
-      username: '',
-      id: '',
-      avatar: '',
-      type: ''
-    },
     needLogin: false
   },
   mutations: {
@@ -41,19 +35,6 @@ const store = new Vuex.Store({
         avatar: ''
       }
     },
-    getAdminInfo (state, data) {
-      state.adminInfo = data ? {
-        username: data.username,
-        id: data.id,
-        avatar: data.avatar,
-        type: data.type
-      } : {
-        username: '',
-        id: '',
-        avatar: '',
-        type: ''
-      }
-    },
     changeLogin (state, value) {
       state.needLogin = value
     }
@@ -64,9 +45,6 @@ const store = new Vuex.Store({
     },
     getUserInfo ({ commit }, data) {
       commit('getUserInfo', data)
-    },
-    getAdminInfo ({ commit }, data) {
-      commit('getAdminInfo', data)
     }
   }
 })

@@ -16,7 +16,7 @@ export default {
       rules: {
         name: [
           { required: true, message: '请输入标题', trigger: 'blur' },
-          { min: 1, max: 20, message: '不能大于20个字符', trigger: 'blur' }
+          { validator: (rule, value, cb) => this.$lengthRule(rule, value, cb, 25), message: '不能大于25个汉字或50英文字符', trigger: 'blur' }
         ],
         type: [
           { required: true, message: '请选择类型', trigger: 'change' }
