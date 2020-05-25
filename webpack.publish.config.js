@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
@@ -15,15 +16,17 @@ module.exports = {
       template: path.join(__dirname, './index.html'),
       filename: 'index.html'
     }),
+    new VueLoaderPlugin(),
     new CleanWebpackPlugin()
   ],
   module: {
     rules: [
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
-      { test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=10000&name=images/[hash:8]-[name].[ext]' },
+      { test: /\.(jpg|png|gif|bmp|jpeg|svg)$/, use: 'url-loader?limit=10000&name=images/[hash:8]-[name].[ext]' },
       { test: /\.(ttf|eot|svg|woff|woff2)$/, use: 'url-loader' },
-      { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ } // 配置 Babel 来转换高级的ES语法
+      { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ }, // 配置 Babel 来转换高级的ES语法
+      { test: /\.vue$/, use: 'vue-loader' }
     ]
   },
   resolve: {
@@ -45,9 +48,16 @@ module.exports = {
         common: {
           name: 'common',
           test: /[\\/]src[\\/]/,
-          minSize: 1024,
+          minSize: 2,
           chunks: 'all',
           priority: 5
+        },
+        public: {
+          name: 'public',
+          test: /[\\/]public[\\/]/,
+          minSize: 2,
+          chunks: 'all',
+          priority: 4
         }
       }
     }

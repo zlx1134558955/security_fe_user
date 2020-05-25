@@ -1,9 +1,7 @@
 import ENV from 'Config/env'
-const { resolve } = require('path')
 export default {
   data () {
     return {
-      dir: resolve(__dirname, './src/assets/svg/')
     }
   },
   computed: {

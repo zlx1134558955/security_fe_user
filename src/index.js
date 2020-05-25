@@ -16,7 +16,7 @@ Vue.use(ElementUI)
 Vue.use(VueAxios, axios)
 
 // axios请求地址
-axios.defaults.baseURL = 'http://localhost:8888'
+axios.defaults.baseURL = 'http://49.234.183.210:8888'
 axios.defaults.withCredentials = true
 
 Vue.filter('timeFormat', filter.formatTime)
